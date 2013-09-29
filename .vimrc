@@ -26,15 +26,16 @@ set shiftwidth=2
 set autoindent
 set backspace=eol,start,indent
 set showmatch
+set cursorline
 
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove"
+map <leader>tm :tabmove
 
 " Switch CWD to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>:pwd<cr>"
+map <leader>cd :cd %:p:h<cr>:pwd<cr>
 let g:airline#extensions#hunks#enabled = 1
 
 " Format the status line
