@@ -49,9 +49,6 @@ nnoremap <c-l> <c-w>l
 set showcmd
 set ruler
 
-set grepprg=ack
-set grepformat=%f:$l:$m
-
 set backup
 set backupdir=~/.vim/backups
 set directory=~/.vim/tmp
@@ -82,9 +79,6 @@ set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 
-
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '◀'
 let g:airline#extensions#branch#enabled = 1
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
@@ -93,7 +87,7 @@ autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=
 autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
 " ================ Scrolling ========================
 
-set scrolloff=8         "Start scrolling when we're 8 lines away from
+set scrolloff=5       "Start scrolling when we're 5 lines away from
 set sidescrolloff=15
 set sidescroll=1
 
