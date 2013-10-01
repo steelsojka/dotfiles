@@ -66,6 +66,8 @@ imap <right> <nop>
 inoremap jk <esc>
 inoremap kj <esc>
 
+g:UseNumberToggleTrigger = 0
+
 nnoremap <leader>t :NERDTree<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 "================ Completion =======================
@@ -94,14 +96,6 @@ autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bu
 set scrolloff=5       "Start scrolling when we're 5 lines away from
 set sidescrolloff=15
 set sidescroll=1
-
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-  else
-    set relativenumber
-  endif
-endfunc
 
 nnoremap <Leader>n :call NumberToggle()<cr>
 
