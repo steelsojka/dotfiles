@@ -63,6 +63,9 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
+inoremap jk <esc>
+inoremap kj <esc>
+
 nnoremap <leader>t :NERDTree<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 "================ Completion =======================
