@@ -92,6 +92,16 @@ set scrolloff=5       "Start scrolling when we're 5 lines away from
 set sidescrolloff=15
 set sidescroll=1
 
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <Leader>n :call NumberToggle()<cr>
+
 " Returns true if paste mode is enabled
 function! HasPaste()
     if &paste
