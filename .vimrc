@@ -65,8 +65,8 @@ imap <right> <nop>
 
 inoremap kj <esc>
 
-let g:colorizer_auto_filetype = 'css,html,javascript,cf,json'
-
+" let g:colorizer_auto_filetype = 'css,html,javascript,cf,json'
+nnoremap <leader>c :ColorToggle<CR>
 
 let g:UseNumberToggleTrigger = 0
 
