@@ -63,8 +63,12 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
-inoremap jk <esc>
 inoremap kj <esc>
+
+let g:colorizer_auto_filetype = 'css,html,js,cfm,json,cfc'
+let g:colorizer_custom_colors = {
+\	'test': '#FF00FF'
+\}
 
 let g:UseNumberToggleTrigger = 0
 
