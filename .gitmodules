@@ -37,3 +37,6 @@
 [submodule ".vim/bundle/vim-numbertoggle"]
 	path = .vim/bundle/vim-numbertoggle
 	url = https://github.com/jeffkreeftmeijer/vim-numbertoggle.git
+[submodule ".vim/bundle/color_highlight"]
+	path = .vim/bundle/color_highlight
+	url = https://github.com/steelsojka/color_highlight.git
