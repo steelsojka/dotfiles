@@ -66,7 +66,7 @@ imap <right> <nop>
 inoremap jk <esc>
 inoremap kj <esc>
 
-g:UseNumberToggleTrigger = 0
+let g:UseNumberToggleTrigger = 0
 
 nnoremap <leader>t :NERDTree<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
