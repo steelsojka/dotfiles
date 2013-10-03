@@ -65,7 +65,7 @@ imap <right> <nop>
 
 inoremap kj <esc>
 
-let g:colorizer_auto_filetype = 'css,html,js,cfm,json,cfc'
+let g:colorizer_auto_filetype = 'css,html,javascript,cf,json'
 let g:colorizer_custom_colors = {
 \	'test': '#FF00FF'
 \}
