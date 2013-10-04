@@ -40,3 +40,6 @@
 [submodule ".vim/bundle/color_highlight"]
 	path = .vim/bundle/color_highlight
 	url = https://github.com/steelsojka/color_highlight.git
+[submodule ".vim/bundle/ack"]
+	path = .vim/bundle/ack
+	url = https://github.com/mileszs/ack.vim

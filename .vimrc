@@ -101,6 +101,8 @@ set sidescroll=1
 
 nnoremap <Leader>n :call NumberToggle()<cr>
 
+let g:ackprg="~/bin/ack -H --nocolor --nogroup --column"
+
 let g:colorizer_custom_colors = {
 \ 'btn_action': '#f48e2e',
 \ 'btn_action_border': '#f07821',

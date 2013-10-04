@@ -17,7 +17,7 @@ alias j="jobs"
 alias localcode="cd /mnt/codebase/ssojka-dev/wwwroot" # For work
 alias devcode="cd /mnt/codebase/wwwroot"
 
-alias ack="perl ~/bin/ack-2.10-single-file"
+alias ack="~/bin/ack"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
