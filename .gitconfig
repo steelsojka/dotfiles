@@ -23,6 +23,11 @@
 	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 	# Interactive rebase with the given number of latest commits
 	reb = "!r() { git rebase -i HEAD~$1; }; r"
+	lga = "log --graph --oneline --all --decorate"
+	lgb = "log --graph --all --decorate --stat"
+	ls = "log --pretty=format: '%C(yellow)%h%Creset -%Cred %ad%Creset:%s %Cgreen[%an]' --decorate"
+	lg = "log --graph --pretty=format: '%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+	last = "log -1 HEAD"
 
 [apply]
 	# Detect whitespace errors when applying a patch
