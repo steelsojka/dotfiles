@@ -1,4 +1,4 @@
-snippet jasangd
+snippet jasdirective
 	describe("${1:directive_name} - Directive", function() {
 		var $compile, $rootScope;	
 	
@@ -14,7 +14,7 @@ snippet jasangd
 		});
 	});
 
-snippet jasangf
+snippet	jasfilter 
 	describe("${1:filter_name} - Filter", function() {
 		var ${1:filter_name};
 	
@@ -25,8 +25,26 @@ snippet jasangf
 			${1:filter_name} = $filter("${1:filter_name}");
 		}));
 
-		it ("${3:test_description}", function() {
+		it("${3:test_description}", function() {
 			// Test here
+		});
+	});
+
+snippet jascontroller
+	describe("${1:controller_name} - Controller", fucntion() {
+		var ${1:controller_name}, $rootScope, $controller, $scope;
+
+		beforeEach(module("${2:module_name}"));
+
+		beforeEach(inject(function($injector) {
+			$controller = $injector.get("$controller");
+			$rootScope = $injector.get("$rootScope");
+			$scope = $rootScope.$new();
+			${1:controller_name} = $controller("${1:controller_name}", {$scope: $scope});
+		}));
+
+		it("${3:test_description}", function() {
+			// Test here	
 		});
 	});
 
@@ -40,3 +58,46 @@ snippet angshort
 	var forEach = angular.forEach;
 	var isDefined = angular.isDefined;
 	var noop = angular.noop;
+
+snippet angdirective
+	angular.module("${1:module_name}").directive("${2:directive_name}", [function() {
+		return {
+			restrict: "EA",
+			link: function(scope, element, attrs) {
+
+			}
+		};
+	}]);
+
+snippet angservice
+	angular.module("${1:module_name}").factory("${2:service_name}", [function() {
+
+		var bind = angular.bind;
+		var forEach = angular.forEach;
+		var isDefined = angular.isDefined;
+		var noop = angular.noop;
+
+		var ${2:service_name} = {};
+
+		return ${2:service_name};
+	}]);
+
+snippet angserviceclass
+	angular.module("${1:module_name}").factory("${2:service_name}", [function() {
+
+		var bind = angular.bind;
+		var forEach = angular.forEach;
+		var isDefined = angular.isDefined;
+		var noop = angular.noop;
+
+		var ${2:service_name} = function() {};
+
+		${2:service_name}.prototype = {};
+
+		return ${2:service_name};
+	}]);
+
+snippet angcontroller
+	angular.module("${1:module_name}").controller("${2:controller_name}", ["$scope", function($scope) {
+		
+	}]);
