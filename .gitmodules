@@ -52,3 +52,6 @@
 [submodule ".vim/bundle/MatchTag"]
 	path = .vim/bundle/MatchTag
 	url = https://github.com/steelsojka/MatchTag.git
+[submodule ".vim/bundle/cf-utils"]
+	path = .vim/bundle/cf-utils
+	url = https://github.com/davejlong/cf-utils.vim.git
