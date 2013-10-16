@@ -14,6 +14,21 @@ snippet jasdirective
 		});
 	});
 
+snippet jasservice
+	describe("${1:service_name} - Service", function() {
+		var ${1:service_name};	
+	
+		beforeEach(module("${2:module_name}"));
+
+		beforeEach(inject(function($injector) {
+			${1:service_name} = $injector.get("${1:service_name}");
+		}));
+
+		it("${3:test_description}", function() {
+			// Test here
+		});
+	});
+
 snippet	jasfilter 
 	describe("${1:filter_name} - Filter", function() {
 		var ${1:filter_name};
