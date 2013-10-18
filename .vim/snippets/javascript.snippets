@@ -13,7 +13,6 @@ snippet jasdirective
 			// Test here
 		});
 	});
-
 snippet jasservice
 	describe("${1:service_name} - Service", function() {
 		var $1;	
@@ -28,7 +27,6 @@ snippet jasservice
 			// Test here
 		});
 	});
-
 snippet	jasfilter 
 	describe("${1:filter_name} - Filter", function() {
 		var $1;
@@ -44,7 +42,6 @@ snippet	jasfilter
 			// Test here
 		});
 	});
-
 snippet jascontroller
 	describe("${1:controller_name} - Controller", fucntion() {
 		var $1, $rootScope, $controller, $scope;
@@ -62,18 +59,15 @@ snippet jascontroller
 			// Test here	
 		});
 	});
-
 snippet jasit
 	it("${1:test_description}", function() {
 		// Test here	
 	});
-
 snippet angshort
 	var bind = angular.bind;
 	var forEach = angular.forEach;
 	var isDefined = angular.isDefined;
 	var noop = angular.noop;
-
 snippet angis
 	var isFunction = angular.isFunction;	
 	var isNumber = angular.isNumber;	
@@ -84,7 +78,6 @@ snippet angis
 	var isDate = angular.isDate;	
 	var isArray = angular.isArray;	
 	var isUndefined = angular.isUndefined;	
-
 snippet angdirective
 	angular.module("${1:module_name}").directive("${2:directive_name}", [function() {
 		return {
@@ -94,7 +87,6 @@ snippet angdirective
 			}
 		};
 	}]);
-
 snippet angservice
 	angular.module("${1:module_name}").factory("${2:service_name}", [function() {
 
@@ -107,7 +99,6 @@ snippet angservice
 
 		return $2;
 	}]);
-
 snippet angserviceclass
 	angular.module("${1:module_name}").factory("${2:service_name}", [function() {
 
@@ -127,7 +118,6 @@ snippet angcontroller
 	angular.module("${1:module_name}").controller("${2:controller_name}", ["$scope", function($scope) {
 		
 	}]);
-
 snippet ngdocdir
 	/**
 	 * @ngdoc directive
@@ -137,7 +127,6 @@ snippet ngdocdir
 	 *
 	 * ${4:directive_description}
 	 */
-
 snippet ngdocser
 	/**
 	 * @ngdoc service
@@ -146,7 +135,6 @@ snippet ngdocser
 	 *
 	 * ${3:service_description}
 	 */
-
 snippet ngdocmeth
 	/**
 	 * @ngdoc method
@@ -156,3 +144,5 @@ snippet ngdocmeth
 	 *
 	 * ${4:method_description}
 	 */
+snippet $inj
+	var ${1:injected_name} = $injector.get("$1");
