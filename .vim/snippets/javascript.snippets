@@ -16,12 +16,12 @@ snippet jasdirective
 
 snippet jasservice
 	describe("${1:service_name} - Service", function() {
-		var ${1:service_name};	
+		var $1;	
 	
 		beforeEach(module("${2:module_name}"));
 
 		beforeEach(inject(function($injector) {
-			${1:service_name} = $injector.get("${1:service_name}");
+			$1 = $injector.get("$1");
 		}));
 
 		it("${3:test_description}", function() {
@@ -31,13 +31,13 @@ snippet jasservice
 
 snippet	jasfilter 
 	describe("${1:filter_name} - Filter", function() {
-		var ${1:filter_name};
+		var $1;
 	
 		beforeEach(module("${2:module_name}"));
 
 		beforeEach(inject(function($injector) {
 			$filter = $injector.get("$filter");
-			${1:filter_name} = $filter("${1:filter_name}");
+			$1 = $filter("$1");
 		}));
 
 		it("${3:test_description}", function() {
@@ -47,7 +47,7 @@ snippet	jasfilter
 
 snippet jascontroller
 	describe("${1:controller_name} - Controller", fucntion() {
-		var ${1:controller_name}, $rootScope, $controller, $scope;
+		var $1, $rootScope, $controller, $scope;
 
 		beforeEach(module("${2:module_name}"));
 
@@ -55,7 +55,7 @@ snippet jascontroller
 			$controller = $injector.get("$controller");
 			$rootScope = $injector.get("$rootScope");
 			$scope = $rootScope.$new();
-			${1:controller_name} = $controller("${1:controller_name}", {$scope: $scope});
+			$1 = $controller("$1", { $scope: $scope });
 		}));
 
 		it("${3:test_description}", function() {
@@ -103,9 +103,9 @@ snippet angservice
 		var isDefined = angular.isDefined;
 		var noop = angular.noop;
 
-		var ${2:service_name} = {};
+		var $2 = {};
 
-		return ${2:service_name};
+		return $2;
 	}]);
 
 snippet angserviceclass
@@ -116,14 +116,43 @@ snippet angserviceclass
 		var isDefined = angular.isDefined;
 		var noop = angular.noop;
 
-		var ${2:service_name} = function() {};
+		var $2 = function() {};
 
-		${2:service_name}.prototype = {};
+		$2.prototype = {};
 
-		return ${2:service_name};
+		return $2;
 	}]);
 
 snippet angcontroller
 	angular.module("${1:module_name}").controller("${2:controller_name}", ["$scope", function($scope) {
 		
 	}]);
+
+snippet ngdocdir
+	/**
+	 * @ngdoc directive
+	 * @name ${1:directive_module}:${2:directive_name}
+	 * @restrict ${3:restrictions}
+	 * @description
+	 *
+	 * ${4:directive_description}
+	 */
+
+snippet ngdocser
+	/**
+	 * @ngdoc service
+	 * @name ${1:service_module}.${2:service_name}
+	 * @description
+	 *
+	 * ${3:service_description}
+	 */
+
+snippet ngdocmeth
+	/**
+	 * @ngdoc method
+	 * @name ${1:service_module}.${2:service_name}#${3:method_name}
+	 * @methodOf $1.$2
+	 * @description
+	 *
+	 * ${4:method_description}
+	 */
