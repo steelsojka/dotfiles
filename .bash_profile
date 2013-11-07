@@ -21,6 +21,10 @@ shopt -s cdspell
 # Include z.sh script
 . ~/z.sh
 
+source ~/.nvm/nvm.sh
+
+nvm use 0.10
+
 # Enable some Bash 4 features when possible:
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
 # * Recursive globbing, e.g. `echo **/*.txt`
@@ -34,8 +38,6 @@ done
 # Add tab completion for `defaults read|write NSGlobalDomain`
 # You could just use `-g` instead, but I like being explicit
 complete -W "NSGlobalDomain" defaults
-
-chmod 0755 ~/bin/ack # Change permissions for ACK
 
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall
