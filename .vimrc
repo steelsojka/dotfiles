@@ -23,7 +23,6 @@ nmap <Leader>q :q<cr>
 set tabstop=2
 set smarttab
 set shiftwidth=2
-set expandtab
 set autoindent
 set backspace=eol,start,indent
 set showmatch
