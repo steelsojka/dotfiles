@@ -102,7 +102,7 @@ set sidescroll=1
 
 nnoremap <Leader>n :call NumberToggle()<cr>
 
-let NERDTreeIgnore = [^.*-(US|DE)\d*\..*$]
+let NERDTreeIgnore = ['^.*-(US|DE)\d*\..*$']
 
 let g:ackprg="~/bin/ack -H --nocolor --nogroup --column"
 
