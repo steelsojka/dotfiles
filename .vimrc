@@ -85,8 +85,13 @@ set wildignore+=vendor/rails/**
 set wildignore+=vendor/cache/**
 set wildignore+=*.gem
 set wildignore+=log/**
+set wildignore+=node_modules/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  'node_modules',
+  \ }
 
 let g:airline#extensions#branch#enabled = 1
 let g:airline_detect_modified=1
