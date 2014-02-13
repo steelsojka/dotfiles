@@ -74,7 +74,7 @@ let g:UseNumberToggleTrigger = 0
 nnoremap <leader>t :NERDTree<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 
-vnoremap <C-r> <Esc>:%s/<C-r>+//gc<left><left><left>
+vnoremap <C-r> "hy:%s/<C-r>+//gc<left><left><left>
 "================ Completion =======================
 
 set wildmode=list:longest
