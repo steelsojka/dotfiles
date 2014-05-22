@@ -1,3 +1,6 @@
+[user]
+  email = steelsojka@gmail.com
+  name = Steven Sojka
 [alias]
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
@@ -64,6 +67,11 @@
 [merge]
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
+  tool = diffconflicts
+[mergetool "diffconflicts"]
+  cmd = diffconflicts $EDITOR $BASE $LOCAL $REMOTE $MERGED
+  trustExitCode = true
+  keepBackup = false
 
 # URL shorthands
 [url "git@github.com:"]
