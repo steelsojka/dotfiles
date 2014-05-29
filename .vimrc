@@ -49,6 +49,11 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" Yank Ring mappings
+" These bindings were interfering with other plugins that 
+" I use regularly. If I need these features, change these bindings.
+let g:yankring_replace_n_pkey = ''
+let g:yankring_replace_n_nkey = ''
 nnoremap <leader>p :YRGetElem<CR>
 
 set showcmd
