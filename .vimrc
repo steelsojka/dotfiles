@@ -55,7 +55,7 @@ set backup
 set backupdir=~/.vim/backups
 set directory=~/.vim/tmp
 
-nnoremap <F5> :GundoToggle<CR>
+nnoremap <leader>u :GundoToggle<CR>
 
 map <up> <nop>
 map <down> <nop>
