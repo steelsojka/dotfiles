@@ -5,6 +5,9 @@
 .DS_Store
 Desktop.ini
 
+# Vim undo files
+*.un~
+
 # Thumbnail cache files
 ._*
 Thumbs.db

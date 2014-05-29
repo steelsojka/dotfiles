@@ -50,6 +50,8 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+nmap <silent> ,/ :nohlsearch<CR>
+
 " Yank Ring mappings
 " These bindings were interfering with other plugins that 
 " I use regularly. If I need these features, change these bindings.
@@ -63,6 +65,7 @@ set ruler
 set backup
 set backupdir=~/.vim/backups
 set directory=~/.vim/tmp
+set undodir=~/.vim/undo
 
 nnoremap <leader>u :GundoToggle<CR>
 
