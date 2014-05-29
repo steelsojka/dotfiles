@@ -14,6 +14,7 @@ set smartcase
 colorscheme jellybeans
 set laststatus=2
 set autoread
+set undofile
 
 " Fast saving
 nmap <Leader>w :w<cr> 
