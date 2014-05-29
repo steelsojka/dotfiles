@@ -19,6 +19,7 @@ set autoread
 nmap <Leader>w :w<cr> 
 nmap <Leader>q :q<cr>
 
+set shiftwidth=2
 
 set tabstop=2
 set smarttab
@@ -48,6 +49,8 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+nnoremap <leader>p :YRGetElem<CR>
+
 set showcmd
 set ruler
 
@@ -76,6 +79,12 @@ let g:UseNumberToggleTrigger = 0
 nnoremap <leader>t :NERDTree<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 
+" If we forget to sudo
+cmap w!! w !sudo tee % >/dev/null
+
+" Type semicolon instead of Shift+colon
+nnoremap ; :
+
 vnoremap <C-r> "hy:%s/<C-r>+//gc<left><left><left>
 "================ Completion =======================
 
@@ -92,6 +101,8 @@ set wildignore+=log/**
 set wildignore+=node_modules/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
+
+set pastetoggle=<F2>
 
 let g:ctrlp_custom_ignore = {
   \ 'dir':  'node_modules',
