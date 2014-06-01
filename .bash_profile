@@ -23,7 +23,8 @@ shopt -s cdspell
 
 source ~/.nvm/nvm.sh
 
-nvm use 0.10.22
+nvm install 0.10.28
+nvm use 0.10.28
 
 # Enable some Bash 4 features when possible:
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
