@@ -172,7 +172,18 @@ snippet ngdocmeth
 	 */
 snippet @p
 	@param {${1:type}} ${2:name} - ${3:description}
+snippet @po
+	@param {${1:type}} [${2:name}] - ${4:description}
+snippet @po=
+	@param {${1:type}} [${2:name}=${3:default_value}] - ${4:description}
 snippet @r
 	@returns {${1:type}}
 snippet @pr
 	@private
+snippet @class
+	/**
+	 * @classdesc ${1:class_description}
+	 * @public
+	 * @example
+	 * ${2:example}
+	 */
