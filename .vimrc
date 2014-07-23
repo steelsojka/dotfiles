@@ -15,6 +15,8 @@ colorscheme jellybeans
 set laststatus=2
 set autoread
 set undofile
+set exrc
+set secure
 
 " Fast saving
 nmap <Leader>w :w<cr> 
@@ -112,7 +114,7 @@ set wildignore+=*.png,*.jpg,*.gif
 set pastetoggle=<F2>
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  'node_modules\|docs\|coverage',
+  \ 'dir':  'node_modules',
   \ }
 
 let g:airline#extensions#branch#enabled = 1
