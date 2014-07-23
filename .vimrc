@@ -20,11 +20,9 @@ set undofile
 nmap <Leader>w :w<cr> 
 nmap <Leader>q :q<cr>
 
-set shiftwidth=2
-
-set tabstop=2
+set tabstop=4
 set smarttab
-set shiftwidth=2
+set shiftwidth=4
 set autoindent
 set expandtab
 set backspace=eol,start,indent
@@ -94,7 +92,7 @@ cmap w!! w !sudo tee % >/dev/null
 " Type semicolon instead of Shift+colon
 nnoremap ; :
 
-vnoremap <C-r> "hy:%s/<C-r>+//gc<left><left><left>
+vnoremap <C-r> hy:%s/<C-r>h//gc<left><left><left>
 "================ Completion =======================
 
 set wildmode=list:longest
@@ -114,7 +112,7 @@ set wildignore+=*.png,*.jpg,*.gif
 set pastetoggle=<F2>
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  'node_modules',
+  \ 'dir':  'node_modules\|docs\|coverage',
   \ }
 
 let g:airline#extensions#branch#enabled = 1
@@ -131,7 +129,7 @@ set sidescroll=1
 
 nnoremap <Leader>n :call NumberToggle()<cr>
 
-let NERDTreeIgnore = ['-US', '-DE']
+"let NERDTreeIgnore = []
 
 let g:ackprg="~/bin/ack -H --nocolor --nogroup --column"
 
