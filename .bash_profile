@@ -26,6 +26,8 @@ source ~/.nvm/nvm.sh
 nvm install 0.10.28
 nvm use 0.10.28
 
+eval "$(grunt --completion=bash)"
+
 # Enable some Bash 4 features when possible:
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
 # * Recursive globbing, e.g. `echo **/*.txt`

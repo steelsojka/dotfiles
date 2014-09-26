@@ -170,14 +170,24 @@ snippet ngdocmeth
 	 *
 	 * ${4:method_description}
 	 */
+snippet @func
+	/**
+	 * ${1:description}
+	 *
+	 * @func
+	 * ${2:params}
+	 * ${3:return_value}
+	 */
+snippet @mo
+	@methodOf ${1:namespace}
 snippet @p
-	@param {${1:type}} ${2:name} - ${3:description}
+	@param {${1:type}} ${2:name} ${3:description}
 snippet @po
-	@param {${1:type}} [${2:name}] - ${4:description}
+	@param {${1:type}} [${2:name}] ${4:description}
 snippet @po=
-	@param {${1:type}} [${2:name}=${3:default_value}] - ${4:description}
+	@param {${1:type}} [${2:name}=${3:default_value}] ${4:description}
 snippet @r
-	@returns {${1:type}}
+	@returns {${1:type}} ${2:description}
 snippet @pr
 	@private
 snippet @class
@@ -187,3 +197,32 @@ snippet @class
 	 * @example
 	 * ${2:example}
 	 */
+
+snippet describe
+	describe("when ${1:something_happens}", function() {
+		${2:test_stuff}
+	});
+
+snippet beforeEach
+	beforeEach(function() {
+		${1:do_stuff}
+	});
+
+snippet afterEach
+	afterEach(function() {
+		${1:do_stuff}
+	});
+
+snippet it
+	it("should ${1:do_something}", function() {
+		${2:expect_something}
+	});
+
+snippet expect
+	expect(${1:something}).${2:toBe}(${3:something});
+
+snippet define
+	define([
+		'${1: module_path}'
+	], function(${2:module_name}) {
+	});
