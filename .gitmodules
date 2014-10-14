@@ -109,3 +109,6 @@
 [submodule ".vim/bundle/javascript-libraries-syntax"]
 	path = .vim/bundle/javascript-libraries-syntax
 	url = https://github.com/othree/javascript-libraries-syntax.vim.git
+[submodule ".vim/bundle/syntastic"]
+	path = .vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
