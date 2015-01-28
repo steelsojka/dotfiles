@@ -23,8 +23,8 @@ shopt -s cdspell
 
 source ~/.nvm/nvm.sh
 
-nvm install 0.10.28
-nvm use 0.10.28
+nvm install 0.10.36
+nvm use 0.10.36
 
 eval "$(grunt --completion=bash)"
 
