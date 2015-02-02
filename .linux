@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+# Ask for the administrator password upfront
+sudo -v
+
+read -p "Is this system 64 bit? (y/n) " -n 1
+
+# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+sudo add-apt-repository ppa:neovim-ppa/unstable
+
+sudo apt-get update
+
+sudo apt-get install silversearcher-ag
+sudo apt-get install vim
+sudo apt-get install neovim
+sudo apt-get install curl
+sudo apt-get install wget
+sudo apt-get install tree
+sudo apt-get install imagemagick
+sudo apt-get install git
+sudo apt-get install tmux
+
+curl -sL https://deb.nodesource.com/setup | sudo bash -
+
+sudo apt-get install -y nodejs
+
+#Chrome install
+sudo apt-get install libxss1 libappindicator1 libindicator7
+
+# If 64 bit
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb    
+else 
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
+fi
+
+sudo dpkg -i google-chrome*.dpkg
+sudo apt-get install -f
