@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+iojs_version=1.1.0
+iojs_untarred=iojs-v$iojs_version-linux-x64
+
+curl https://iojs.org/dist/v$iojs_version/$iojs_untarred.tar.xz | tar xvfJ && mv $iojs_untarred iojs
+
+ln -s ~/iojs/bin/iojs ~/bin/iojs
+ln -s ~/iojs/bin/node ~/bin/node
+ln -s ~/iojs/bin/npm ~/bin/npm

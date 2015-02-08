@@ -21,11 +21,6 @@ shopt -s cdspell
 # Include z.sh script
 . ~/z.sh
 
-source ~/.nvm/nvm.sh
-
-nvm install 0.10.36
-nvm use 0.10.36
-
 eval "$(grunt --completion=bash)"
 
 ulimit -n 1024

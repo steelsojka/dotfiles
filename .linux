@@ -22,9 +22,7 @@ sudo apt-get install imagemagick
 sudo apt-get install git
 sudo apt-get install tmux
 
-curl -sL https://deb.nodesource.com/setup | sudo bash -
-
-sudo apt-get install -y nodejs
+~/installs/linux/iojs
 
 #Chrome install
 sudo apt-get install libxss1 libappindicator1 libindicator7
