@@ -198,6 +198,32 @@ snippet @class
 	 * ${2:example}
 	 */
 
+snippet angtestes6
+	"use strict";
+
+	import _ from "lodash";
+	import R from "ramda";
+
+	describe("${1:name}", function() {
+		beforeEach(angular.mock.module("${2:module_name}"));
+
+		beforeEach(inject(function($injector) {
+			this.$compile = $injector.get("$compile");
+			this.$rootScope = $injector.get("$rootScope");
+
+			this.$scope = this.$rootScope.$new();
+
+			this.el = this.$compile("<div></div>")(this.$scope);
+		}));
+
+		describe("when ${3:something_happens}", function() {
+			beforeEach(function() {
+				${4:setup}
+			});
+		});
+	});
+
+
 snippet describe
 	describe("when ${1:something_happens}", function() {
 		${2:test_stuff}
