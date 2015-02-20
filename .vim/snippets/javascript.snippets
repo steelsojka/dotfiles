@@ -203,11 +203,14 @@ snippet angtestes6
 
 	import _ from "lodash";
 	import R from "ramda";
+	import {expect} from "chai";
+	import sinon from "sinon";
 
 	describe("${1:name}", function() {
 		beforeEach(angular.mock.module("${2:module_name}"));
 
 		beforeEach(inject(function($injector) {
+			this.sandbox = sinon.sandbox.create();
 			this.$compile = $injector.get("$compile");
 			this.$rootScope = $injector.get("$rootScope");
 
@@ -216,9 +219,13 @@ snippet angtestes6
 			this.el = this.$compile("<div></div>")(this.$scope);
 		}));
 
+		afterEach(function() {
+			this.sandbox.restore();
+		});
+
 		describe("when ${3:something_happens}", function() {
 			beforeEach(function() {
-				${4:setup}
+				// ${4:setup}
 			});
 		});
 	});
