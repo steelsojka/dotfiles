@@ -30,6 +30,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'SirVer/ultisnips'
+Plugin 'nanotech/jellybeans.vim'
 
 call vundle#end()
 
