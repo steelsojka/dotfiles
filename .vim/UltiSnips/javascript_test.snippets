@@ -1,0 +1,60 @@
+# Mocha/Jasmine + Chai
+snippet describe
+describe("${1:something_happens}", function() {
+	${2:// test_stuff}
+});
+endsnippet
+
+snippet beforeEach
+beforeEach(function() {
+	${1:// do_stuff}
+});
+endsnippet
+
+snippet afterEach
+afterEach(function() {
+	${1:// do_stuff}
+});
+endsnippet
+
+snippet it
+it("should ${1:do_something}", function() {
+	${2:// expect_something}
+});
+endsnippet
+
+snippet expectspy
+expect(${1:method}).to.have.been.called;
+endsnippet
+
+snippet expectspyw
+expect(${1:method}).to.have.been.calledWith(${2:args});
+endsnippet
+
+snippet expectt
+expect(${1:value}).to.be.true;
+endsnippet
+
+snippet expectf
+expect(${1:value}).to.be.false;
+endsnippet
+
+snippet expect=
+expect(${1:value}).to.equal(${2:prop});
+endsnippet
+
+snippet expect=d
+expect(${1:value}).to.eql(${2:prop});
+endsnippet
+
+snippet spy
+this.sandbox.spy()
+endsnippet
+
+snippet stub
+this.sandbox.stub()
+endsnippet
+
+snippet stubm
+this.sandbox.stub(${1:object}, "${2:method}");
+endsnippet

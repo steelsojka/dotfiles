@@ -27,9 +27,9 @@ Plugin 'groenewege/vim-less'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'tpope/vim-repeat'
-Plugin 'garbas/vim-snipmate'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'SirVer/ultisnips'
 
 call vundle#end()
 
@@ -111,12 +111,17 @@ let g:airline#extensions#branch#enabled = 1
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
 
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsSnippetDir="~/.vim/UltiSnips"
+
 colorscheme jellybeans
 
 " Fast saving
-nmap <Leader>w :w<cr> 
-nmap <Leader>q :q<cr>
-nmap <silent> ,/ :nohlsearch<CR>
+nnoremap <Leader>w :w<cr> 
+nnoremap <Leader>q :q<cr>
+nnoremap <silent> ,/ :nohlsearch<CR>
 
 nmap k gk
 nmap j gj
@@ -131,6 +136,9 @@ map <leader>tm :tabmove
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 map <Leader>ip :PluginInstall<CR>
+
+" Paste from clipboard register
+nnoremap <Leader>v "+p
 
 " Move around splits with <c-hjkl>
 nnoremap <c-j> <c-w>j

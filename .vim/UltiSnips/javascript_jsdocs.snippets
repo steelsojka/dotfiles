@@ -1,0 +1,43 @@
+# jsdocs
+snippet @func
+/**
+ * ${1:description}
+ *
+ * @func
+ * ${2:params}
+ * ${3:return_value}
+ */
+endsnippet
+
+snippet @mo
+@methodOf ${1:namespace}
+endsnippet
+
+snippet @p
+@param {${1:type}} ${2:name} ${3:description}
+endsnippet
+
+snippet @po
+@param {${1:type}} [${2:name}] ${4:description}
+endsnippet
+
+snippet @po=
+@param {${1:type}} [${2:name}=${3:default_value}] ${4:description}
+endsnippet
+
+snippet @r
+@returns {${1:type}} ${2:description}
+endsnippet
+
+snippet @pr
+@private
+endsnippet
+
+snippet @class
+/**
+ * @classdesc ${1:class_description}
+ * @public
+ * @example
+ * ${2:example}
+ */
+endsnippet
