@@ -89,6 +89,7 @@ set scrolloff=5       "Start scrolling when we're 5 lines away from
 set sidescrolloff=15
 set sidescroll=1
 
+set timeoutlen=500
 set ttimeout
 set ttimeoutlen=1
 
@@ -115,6 +116,9 @@ colorscheme jellybeans
 nmap <Leader>w :w<cr> 
 nmap <Leader>q :q<cr>
 nmap <silent> ,/ :nohlsearch<CR>
+
+nmap k gk
+nmap j gj
 
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
