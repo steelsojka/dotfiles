@@ -43,6 +43,7 @@ set nowrap
 set hlsearch
 set incsearch
 set smartcase
+set ignorecase
 set laststatus=2
 set autoread
 set undofile
