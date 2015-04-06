@@ -1,175 +1,12 @@
-snippet angshort
-	var bind = angular.bind;
-	var forEach = angular.forEach;
-	var isDefined = angular.isDefined;
-	var noop = angular.noop;
-snippet angis
-	var isFunction = angular.isFunction;	
-	var isNumber = angular.isNumber;	
-	var isObject = angular.isObject;	
-	var isString = angular.isString;	
-	var isDefined = angular.isDefined;	
-	var isElement = angular.isElement;	
-	var isDate = angular.isDate;	
-	var isArray = angular.isArray;	
-	var isUndefined = angular.isUndefined;	
-snippet angdirective
-	angular.module("${1:module_name}").directive("${2:directive_name}", [function() {
-		return {
-			restrict: "EA",
-			link: function(scope, element, attrs) {
-
-			}
-		};
-	}]);
-snippet angservice
-	angular.module("${1:module_name}").factory("${2:service_name}", [function() {
-
-		var bind = angular.bind;
-		var forEach = angular.forEach;
-		var isDefined = angular.isDefined;
-		var noop = angular.noop;
-
-		var $2 = {};
-
-		return $2;
-	}]);
-snippet angserviceclass
-	angular.module("${1:module_name}").factory("${2:service_name}", [function() {
-
-		var bind = angular.bind;
-		var forEach = angular.forEach;
-		var isDefined = angular.isDefined;
-		var noop = angular.noop;
-
-		var $2 = function() {};
-
-		$2.prototype = {};
-
-		return $2;
-	}]);
-
-snippet angcontroller
-	angular.module("${1:module_name}").controller("${2:controller_name}", ["$scope", function($scope) {
-		
-	}]);
+# Angular injector
 snippet $inj
-	var ${1:injected_name} = $injector.get("$1");
+	let ${1:injected_name} = $injector.get("$1");
+snippet $injt
+	this.${1:injected_name} = $injector.get("$1");
+snippet $injp
+	${1:injected_name}: $injector.get("$1"),
 
-snippet jasdefine
-	define([
-		"${1:module_name}"
-	], function(${2:module_alias}) {
-
-		describe("${3:module_path}", function() {
-			beforeEach(function() {
-			});
-
-			afterEach(function() {
-			});
-
-			it("${4:test}", function() {
-			});
-		});
-	});
-snippet jasdirective
-	describe("${1:directive_name} - Directive", function() {
-		var $compile, $rootScope, scope, el;	
-	
-		beforeEach(module("${2:module_name}"));
-
-		beforeEach(inject(function($injector) {
-			$compile = $injector.get("$compile");
-			$rootScope = $injector.get("$rootScope");
-			scope = $rootScope.$new();
-			el = $compile("${3:html}")(scope);
-		}));
-
-		it("${4:test_description}", function() {
-			// Test here
-		});
-	});
-snippet jasservice
-	describe("${1:service_name} - Service", function() {
-		var $1;	
-	
-		beforeEach(module("${2:module_name}"));
-
-		beforeEach(inject(function($injector) {
-			$1 = $injector.get("$1");
-		}));
-
-		it("${3:test_description}", function() {
-			// Test here
-		});
-	});
-snippet	jasfilter 
-	describe("${1:filter_name} - Filter", function() {
-		var $1;
-	
-		beforeEach(module("${2:module_name}"));
-
-		beforeEach(inject(function($injector) {
-			$filter = $injector.get("$filter");
-			$1 = $filter("$1");
-		}));
-
-		it("${3:test_description}", function() {
-			// Test here
-		});
-	});
-snippet jascontroller
-	describe("${1:controller_name} - Controller", function() {
-		var $1, $rootScope, $controller, $scope;
-
-		beforeEach(module("${2:module_name}"));
-
-		beforeEach(inject(function($injector) {
-			$controller = $injector.get("$controller");
-			$rootScope = $injector.get("$rootScope");
-			$scope = $rootScope.$new();
-			$1 = $controller("$1", { $scope: $scope });
-		}));
-
-		afterEach(function() {
-			$scope.$destroy();
-		});
-
-		it("${3:test_description}", function() {
-			// Test here	
-		});
-	});
-snippet jasit
-	it("${1:test_description}", function() {
-		// Test here	
-	});
-
-snippet ngdocdir
-	/**
-	 * @ngdoc directive
-	 * @name ${1:directive_module}:${2:directive_name}
-	 * @restrict ${3:restrictions}
-	 * @description
-	 *
-	 * ${4:directive_description}
-	 */
-snippet ngdocser
-	/**
-	 * @ngdoc service
-	 * @name ${1:service_module}.${2:service_name}
-	 * @description
-	 *
-	 * ${3:service_description}
-	 */
-snippet ngdocmeth
-	/**
-	 * @ngdoc method
-	 * @name ${1:service_module}.${2:service_name}#${3:method_name}
-	 * @methodOf $1.$2
-	 * @description
-	 *
-	 * ${4:method_description}
-	 */
+# jsdocs
 snippet @func
 	/**
 	 * ${1:description}
@@ -198,64 +35,32 @@ snippet @class
 	 * ${2:example}
 	 */
 
-snippet angtestes6
-	"use strict";
-
-	import _ from "lodash";
-	import R from "ramda";
-	import {expect} from "chai";
-	import sinon from "sinon";
-
-	describe("${1:name}", function() {
-		beforeEach(angular.mock.module("${2:module_name}"));
-
-		beforeEach(inject(function($injector) {
-			this.sandbox = sinon.sandbox.create();
-			this.$compile = $injector.get("$compile");
-			this.$rootScope = $injector.get("$rootScope");
-
-			this.$scope = this.$rootScope.$new();
-
-			this.el = this.$compile("<div></div>")(this.$scope);
-		}));
-
-		afterEach(function() {
-			this.sandbox.restore();
-		});
-
-		describe("when ${3:something_happens}", function() {
-			beforeEach(function() {
-				// ${4:setup}
-			});
-		});
-	});
-
-
+# Mocha/Jasmine + Chai
 snippet describe
-	describe("when ${1:something_happens}", function() {
-		${2:test_stuff}
+	describe("${1:something_happens}", function() {
+		${2:// test_stuff}
 	});
-
 snippet beforeEach
 	beforeEach(function() {
-		${1:do_stuff}
+		${1:// do_stuff}
 	});
-
 snippet afterEach
 	afterEach(function() {
-		${1:do_stuff}
+		${1:// do_stuff}
 	});
-
 snippet it
 	it("should ${1:do_something}", function() {
-		${2:expect_something}
+		${2:// expect_something}
 	});
-
-snippet expect
-	expect(${1:something}).${2:toBe}(${3:something});
-
-snippet define
-	define([
-		'${1: module_path}'
-	], function(${2:module_name}) {
-	});
+snippet expectspy
+	expect(${1:method}).to.have.been.called;
+snippet expectspyw
+	expect(${1:method}).to.have.been.calledWith(${2:args});
+snippet expectt
+	expect(${1:value}).to.be.true;
+snippet expectf
+	expect(${1:value}).to.be.false;
+snippet expect=
+	expect(${1:value}).to.equal(${2:prop});
+snippet expect=d
+	expect(${1:value}).to.eql(${2:prop});
