@@ -31,6 +31,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'SirVer/ultisnips'
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'digitaltoad/vim-jade'
 
 call vundle#end()
 
