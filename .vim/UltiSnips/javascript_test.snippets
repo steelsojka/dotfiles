@@ -1,24 +1,24 @@
-# Mocha/Jasmine + Chai
+# Mocha/Jasmine + Chai + ES6
 snippet describe
-describe("${1:something_happens}", function() {
+describe("${1:something_happens}", () => {
 	${2:// test_stuff}
 });
 endsnippet
 
 snippet beforeEach
-beforeEach(function() {
+beforeEach(() => {
 	${1:// do_stuff}
 });
 endsnippet
 
 snippet afterEach
-afterEach(function() {
+afterEach(() => {
 	${1:// do_stuff}
 });
 endsnippet
 
 snippet it
-it("should ${1:do_something}", function() {
+it("should ${1:do_something}", () => {
 	${2:// expect_something}
 });
 endsnippet
