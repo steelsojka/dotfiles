@@ -54,7 +54,7 @@ set exrc
 set secure
 set tabstop=4
 set smarttab
-set shiftwidth=4
+set shiftwidth=2
 set autoindent
 set expandtab
 set backspace=eol,start,indent
