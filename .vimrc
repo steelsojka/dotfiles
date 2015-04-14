@@ -180,6 +180,11 @@ nnoremap <Leader>n :call NumberToggle()<cr>
 autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
 autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
 
+"===================== UltiSnips ===============
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 "let NERDTreeIgnore = []
 
 " Returns true if paste mode is enabled
