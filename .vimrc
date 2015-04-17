@@ -153,6 +153,9 @@ nnoremap <c-l> <c-w>l
 nnoremap <leader>p :YRGetElem<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 
+" Replace double quotes with single quotes
+nnoremap <Leader>'' :%s/"/'/g<CR>
+
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
