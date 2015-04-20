@@ -66,3 +66,96 @@ endsnippet
 snippet stubm
 sandbox.stub(${1:object}, '${2:method}');
 endsnippet
+
+snippet testservice
+'use strict';
+
+import { expect } from 'chai';
+import sinon from 'sinon';
+
+describe('${1:test_name}', () => {
+  let sandbox, actual, stubs, request, response;
+
+  beforeEach(() => {
+    sandbox = sinon.sandbox.create();
+
+	stubs = {};
+	request = {};
+	response = {};
+  });
+
+  afterEach(() => {
+	sandbox.restore();
+  });
+
+  describe('${2:method}', () => {
+	beforeEach(() => {
+	});
+
+	it('should do something', () => {
+	});
+  });
+});
+endsnippet
+
+snippet test
+'use strict';
+
+import { expect } from 'chai';
+import sinon from 'sinon';
+
+describe('${1:test_name}', () => {
+  let sandbox, actual, stubs;
+
+  beforeEach(() => {
+    sandbox = sinon.sandbox.create();
+
+	stubs = {};
+  });
+
+  afterEach(() => {
+	sandbox.restore();
+  });
+
+  describe('${2:method}', () => {
+	beforeEach(() => {
+	});
+
+	it('should do something', () => {
+	});
+  });
+});
+endsnippet
+
+snippet testangular
+'use strict';
+
+import { expect } from 'chai';
+import sinon from 'sinon';
+import angular from 'angular';
+
+describe('${1:test_name}', () => {
+  let sandbox, actual, stubs;
+
+  beforeEach(angular.mock.module('${2:module_name}'));
+  beforeEach(angular.mock.module('ngoms.mock'));
+
+  beforeEach(inject($injector => {
+    sandbox = sinon.sandbox.create();
+
+	stubs = {};
+  }));
+
+  afterEach(() => {
+	sandbox.restore();
+  });
+
+  describe('${3:method}', () => {
+	beforeEach(() => {
+	});
+
+	it('should do something', () => {
+	});
+  });
+});
+endsnippet
