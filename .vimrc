@@ -175,6 +175,10 @@ nnoremap <leader>c :ColorToggle<CR>
 nnoremap <leader>t :NERDTree<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 
+" Sessions
+nnoremap <Leader>os :OpenSession<CR>
+nnoremap <Leader>ss :SaveSession 
+
 " If we forget to sudo
 cmap w!! w !sudo tee % >/dev/null
 
