@@ -32,7 +32,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'SirVer/ultisnips'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'digitaltoad/vim-jade'
-Plugin 'mhinz/vim-startify'
+Plugin 'xolox/vim-session'
 
 call vundle#end()
 
