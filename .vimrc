@@ -33,6 +33,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'xolox/vim-session'
+Plugin 'xolox/vim-misc'
 
 call vundle#end()
 
@@ -118,6 +119,9 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsSnippetDir="~/.vim/UltiSnips"
+
+let g:session_autoload='no'
+let g:session_autosave='no'
 
 colorscheme jellybeans
 
