@@ -153,6 +153,14 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" Move lines up/down
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-k> :m '<-2<CR>gv=gv
+vnoremap <A-j> :m '>+1<CR>gv=gv
+
 " Yank Ring mappings
 nnoremap <leader>p :YRGetElem<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
