@@ -188,7 +188,7 @@ cmap w!! w !sudo tee % >/dev/null
 nnoremap ; :
 
 " Replace highlighted text
-vnoremap <C-r> hy:%s/<C-r>h//gc<left><left><left>
+vnoremap <C-r> "+y:%s/<C-r>+//gc<left><left><left>
 
 " ------------------------------------------------------------------------
 " vim-airline
