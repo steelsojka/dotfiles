@@ -42,6 +42,7 @@ syntax on
 
 let mapleader = ","
 let g:mapleader = ","
+
 set number
 set nowrap
 set hlsearch
@@ -72,7 +73,9 @@ set grepprg=ag
 set shiftround
 set nofoldenable
 
-"================ Completion =======================
+" ------------------------------------------------------------------------
+" Completion
+" ------------------------------------------------------------------------
 
 set wildmode=list:longest
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
@@ -88,7 +91,9 @@ set wildignore+=node_modules/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 
-" ================ Scrolling ========================
+" ------------------------------------------------------------------------
+" Scrolling
+" ------------------------------------------------------------------------
 
 set scrolloff=5       "Start scrolling when we're 5 lines away from
 set sidescrolloff=15
@@ -98,37 +103,32 @@ set timeoutlen=500
 set ttimeout
 set ttimeoutlen=1
 
+" ------------------------------------------------------------------------
+" Schemes
+" ------------------------------------------------------------------------
+colorscheme jellybeans
+
+" ------------------------------------------------------------------------
+" Mappings
+" ------------------------------------------------------------------------
+
 command! Q q
 command! E e
 
-let g:airline#extensions#hunks#enabled = 1
-" These bindings were interfering with other plugins that 
-" I use regularly. If I need these features, change these bindings.
-let g:yankring_replace_n_pkey = ''
-let g:yankring_replace_n_nkey = ''
-let g:UseNumberToggleTrigger = 0
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  'node_modules',
-  \ }
+" Fast quiting
+inoremap <C-Q>     <esc>:q<cr>
+nnoremap <C-Q>     :q<cr>
+vnoremap <C-Q>     <esc>
+nnoremap <Leader>q :q<cr>
+nnoremap <Leader>Q :qa!<cr>
 
-let g:airline#extensions#branch#enabled = 1
-let g:airline_detect_modified=1
-let g:airline_detect_paste=1
-
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsSnippetDir="~/.vim/UltiSnips"
-
-let g:session_autoload='no'
-let g:session_autosave='no'
-
-colorscheme jellybeans
+" Remove search highlight
+nnoremap <silent> ,/ :nohlsearch<CR>
 
 " Fast saving
-nnoremap <Leader>w :w<cr> 
-nnoremap <Leader>q :q<cr>
-nnoremap <silent> ,/ :nohlsearch<CR>
+nnoremap <Leader>w :update<CR>
+nnoremap <C-s> :update<CR>
+inoremap <C-s> <C-O>:update<CR>
 
 nmap k gk
 nmap j gj
@@ -142,6 +142,7 @@ map <leader>tm :tabmove
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
+" Install all plugins
 map <Leader>ip :PluginInstall<CR>
 
 " Paste from clipboard register
@@ -153,17 +154,17 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" Move lines up/down
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-k> :m '<-2<CR>gv=gv
-vnoremap <A-j> :m '>+1<CR>gv=gv
-
-" Yank Ring mappings
-nnoremap <leader>p :YRGetElem<CR>
-nnoremap <leader>u :UndotreeToggle<CR>
+" Moving lines
+nnoremap <silent> ˚ :move-2<cr>
+nnoremap <silent> ∆ :move+<cr>
+nnoremap <silent> ˙ <<
+nnoremap <silent> ¬ >>
+xnoremap <silent> ˚ :move-2<cr>gv
+xnoremap <silent> ∆ :move'>+<cr>gv
+xnoremap <silent> ˙ <gv
+xnoremap <silent> ¬ >gv
+xnoremap < <gv
+xnoremap > >gv
 
 " Replace double quotes with single quotes
 nnoremap <Leader>'' :%s/"/'/g<CR>
@@ -177,15 +178,8 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
+" Escaping
 inoremap kj <esc>
-
-nnoremap <leader>c :ColorToggle<CR>
-nnoremap <leader>t :NERDTree<CR>
-nnoremap <leader>f :NERDTreeFind<CR>
-
-" Sessions
-nnoremap <Leader>os :OpenSession<CR>
-nnoremap <Leader>ss :SaveSession 
 
 " If we forget to sudo
 cmap w!! w !sudo tee % >/dev/null
@@ -193,19 +187,72 @@ cmap w!! w !sudo tee % >/dev/null
 " Type semicolon instead of Shift+colon
 nnoremap ; :
 
+" Replace highlighted text
 vnoremap <C-r> hy:%s/<C-r>h//gc<left><left><left>
+
+" ------------------------------------------------------------------------
+" vim-airline
+" ------------------------------------------------------------------------
+let g:airline#extensions#hunks#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline_detect_modified=1
+let g:airline_detect_paste=1
+
+" ------------------------------------------------------------------------
+" YankRing
+" ------------------------------------------------------------------------
+let g:yankring_replace_n_pkey = ''
+let g:yankring_replace_n_nkey = ''
+nnoremap <leader>p :YRGetElem<CR>
+
+" ------------------------------------------------------------------------
+" UndoTree
+" ------------------------------------------------------------------------
+nnoremap U :UndotreeToggle<CR>
+
+" ------------------------------------------------------------------------
+" NERDTree
+" ------------------------------------------------------------------------
+nnoremap <leader>t :NERDTree<CR>
+nnoremap <leader>f :NERDTreeFind<CR>
+" let NERDTreeIgnore = []
+
+" ------------------------------------------------------------------------
+" CtrlP
+" ------------------------------------------------------------------------
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  'node_modules',
+  \ }
+
+" ------------------------------------------------------------------------
+" vim-sessions
+" ------------------------------------------------------------------------
+let g:session_autoload='no'
+let g:session_autosave='no'
+nnoremap <Leader>os :OpenSession<CR>
+nnoremap <Leader>ss :SaveSession 
+
+" ------------------------------------------------------------------------
+" vim-numbertoggle
+" ------------------------------------------------------------------------
+let g:UseNumberToggleTrigger = 0
 nnoremap <Leader>n :call NumberToggle()<cr>
 
 autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
 autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
 
-"===================== UltiSnips ===============
+" ------------------------------------------------------------------------
+" UltiSnips
+" ------------------------------------------------------------------------
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsSnippetDir="~/.vim/UltiSnips"
 
-"let NERDTreeIgnore = []
 
+" ------------------------------------------------------------------------
+" Functions
+" ------------------------------------------------------------------------
 " Returns true if paste mode is enabled
 function! HasPaste()
     if &paste
@@ -237,3 +284,22 @@ function UpdateJsHintConf()
 endfunction
 
 au BufEnter * call UpdateJsHintConf()
+
+" ----------------------------------------------------------------------------
+" SaveMacro / LoadMacro
+" ----------------------------------------------------------------------------
+function! s:save_macro(name, file)
+  let content = eval('@'.a:name)
+  if !empty(content)
+    call writefile(split(content, "\n"), a:file)
+    echom len(content) . " bytes save to ". a:file
+  endif
+endfunction
+command! -nargs=* SaveMacro call <SID>save_macro(<f-args>)
+
+function! s:load_macro(file, name)
+  let data = join(readfile(a:file), "\n")
+  call setreg(a:name, data, 'c')
+  echom "Macro loaded to @". a:name
+endfunction
+command! -nargs=* LoadMacro call <SID>load_macro(<f-args>)
