@@ -126,9 +126,9 @@ nnoremap <Leader>Q :qa!<cr>
 nnoremap <silent> ,/ :nohlsearch<CR>
 
 " Fast saving
-nnoremap <Leader>w :update<CR>
-nnoremap <C-s> :update<CR>
-inoremap <C-s> <C-O>:update<CR>
+nnoremap <Leader>w :w<CR>
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <C-O>:w<CR>
 
 nmap k gk
 nmap j gj
