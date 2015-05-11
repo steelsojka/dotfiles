@@ -17,6 +17,8 @@ ulimit -n 1024
 ZSH_THEME="robbyrussell"
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git node npm)
+bindkey "kj" vi-cmd-mode
+
+plugins=(git node npm vi-mode)
 
 source $ZSH/oh-my-zsh.sh
