@@ -34,6 +34,7 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'xolox/vim-session'
 Plugin 'xolox/vim-misc'
+Plugin 'majutsushi/tagbar'
 
 call vundle#end()
 
