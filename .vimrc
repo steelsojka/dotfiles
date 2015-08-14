@@ -188,12 +188,14 @@ vnoremap <C-r> "+y:%s/<C-r>+//g<left><left>
 
 " ------ Terminal mappings ------------
 
-" Exit terminal mode with ESC
-tnoremap <Esc> <C-\><C-n>
-tnoremap <C-h> <C-\><C-n><C-w>h
-tnoremap <C-j> <C-\><C-n><C-w>j
-tnoremap <C-k> <C-\><C-n><C-w>k
-tnoremap <C-l> <C-\><C-n><C-w>l
+if has('nvim')
+  " Exit terminal mode with ESC
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <C-h> <C-\><C-n><C-w>h
+  tnoremap <C-j> <C-\><C-n><C-w>j
+  tnoremap <C-k> <C-\><C-n><C-w>k
+  tnoremap <C-l> <C-\><C-n><C-w>l
+endif 
 
 " ------------------------------------------------------------------------
 " vim-airline
