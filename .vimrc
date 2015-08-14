@@ -1,42 +1,40 @@
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
 
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'gregsexton/MatchTag'
-Plugin 'mbbill/undotree'
-Plugin 'vim-scripts/YankRing.vim'
-Plugin 'corntrace/bufexplorer'
-Plugin 'kien/ctrlp.vim'
-Plugin 'Raimondi/delimitMate'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'othree/html5.vim'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'othree/yajs.vim'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-abolish'
-Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-commentary'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'groenewege/vim-less'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'SirVer/ultisnips'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'xolox/vim-session'
-Plugin 'xolox/vim-misc'
-Plugin 'majutsushi/tagbar'
-Plugin 'rking/ag.vim'
-Plugin 'benekastah/neomake'
+Plug 'gregsexton/MatchTag'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+Plug 'vim-scripts/YankRing.vim', { 'on': 'YRGetElem' }
+Plug 'corntrace/bufexplorer' 
+Plug 'kien/ctrlp.vim'
+Plug 'Raimondi/delimitMate'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'othree/html5.vim'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'othree/yajs.vim'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeFind'] }
+Plug 'tpope/vim-abolish'
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-commentary'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'groenewege/vim-less'
+Plug 'plasticboy/vim-markdown'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'SirVer/ultisnips'
+Plug 'nanotech/jellybeans.vim'
+Plug 'digitaltoad/vim-jade'
+Plug 'xolox/vim-session', { 'on': ['SaveSession', 'OpenSession']}
+Plug 'xolox/vim-misc'
+Plug 'majutsushi/tagbar'
+Plug 'rking/ag.vim'
+Plug 'benekastah/neomake'
 
-call vundle#end()
+call plug#end()
 
 filetype plugin indent on
 syntax on
@@ -142,9 +140,6 @@ map <leader>tm :tabmove
 
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
-
-" Install all plugins
-map <Leader>ip :PluginInstall<CR>
 
 " Paste from clipboard register
 nnoremap <Leader>v "+p
@@ -276,30 +271,6 @@ function! HasPaste()
   	en
     return ''
 endfunction
-
-" Find the projects .jshintrc file or use the home directory one
-" Used for syntastic
-function s:find_jshintrc(dir)
-    let l:found = globpath(a:dir, '.jshintrc')
-    if filereadable(l:found)
-        return l:found
-    endif
-
-    let l:parent = fnamemodify(a:dir, ':h')
-    if l:parent != a:dir
-        return s:find_jshintrc(l:parent)
-    endif
-
-    return "~/.jshintrc"
-endfunction
-
-function UpdateJsHintConf()
-    let l:dir = expand('%:p:h')
-    let l:jshintrc = s:find_jshintrc(l:dir)
-    let g:syntastic_javascript_jshint_conf = l:jshintrc
-endfunction
-
-au BufEnter * call UpdateJsHintConf()
 
 " ----------------------------------------------------------------------------
 " SaveMacro / LoadMacro
