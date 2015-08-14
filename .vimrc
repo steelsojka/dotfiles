@@ -17,7 +17,6 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'othree/yajs.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-abolish'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-commentary'
@@ -35,6 +34,7 @@ Plugin 'xolox/vim-session'
 Plugin 'xolox/vim-misc'
 Plugin 'majutsushi/tagbar'
 Plugin 'rking/ag.vim'
+Plugin 'benekastah/neomake'
 
 call vundle#end()
 
@@ -216,9 +216,10 @@ let g:yankring_replace_n_nkey = ''
 nnoremap <leader>p :YRGetElem<CR>
 
 " ------------------------------------------------------------------------
-" Syntastic
+" Neomake
 " ------------------------------------------------------------------------
-let g:syntastic_javascript_checkers = ['eslint']
+let g:neomake_javascript_enabled_makers = ['eslint']
+autocmd! BufWritePost * Neomake
 
 " ------------------------------------------------------------------------
 " UndoTree
