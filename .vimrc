@@ -39,8 +39,8 @@ call plug#end()
 filetype plugin indent on
 syntax on
 
-let mapleader = ","
-let g:mapleader = ","
+let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
 
 set number
 set nowrap
