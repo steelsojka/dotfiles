@@ -150,6 +150,10 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" Move between tabs with <s-hl>
+nnoremap <s-l> gt
+nnoremap <s-h> gT
+
 " Moving lines
 nnoremap <silent> ˚ :move-2<cr>
 nnoremap <silent> ∆ :move+<cr>
