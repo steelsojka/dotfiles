@@ -33,6 +33,7 @@ Plug 'xolox/vim-misc'
 Plug 'majutsushi/tagbar'
 Plug 'rking/ag.vim'
 Plug 'benekastah/neomake'
+Plug 'Shougo/deoplete.nvim'
 
 call plug#end()
 
@@ -150,7 +151,6 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" Move between tabs with <s-hl>
 nnoremap <s-l> gt
 nnoremap <s-h> gT
 
@@ -266,6 +266,10 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsSnippetDir="~/.vim/UltiSnips"
 
+" ------------------------------------------------------------------------
+" Deoplete.nvim
+" ------------------------------------------------------------------------
+let g:deoplete#enable_at_startup = 1
 
 " ------------------------------------------------------------------------
 " Functions
