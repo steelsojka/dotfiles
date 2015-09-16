@@ -1,0 +1,32 @@
+global !p
+from snippet_helpers import *
+endglobal
+
+snippet method "Add a class method" b
+/**
+`!p snip.rv = jsdocArguments(t[2])`
+ * @return {*} Return value
+ */
+${1:methodName}(${2:arguments}) {
+}
+
+endsnippet
+
+snippet func "Add a function" b
+/**
+`!p snip.rv = jsdocArguments(t[2])`
+ * @return {*} Return value
+ */
+function ${1:methodName}(${2:arguments}) {
+}
+endsnippet
+
+snippet class "Create a class" b
+/**
+`!p snip.rv = jsdocArguments(t[2])`
+ */
+class ${1:className} {
+  constructor(${2:arguments}) {
+  }
+}
+endsnippet
