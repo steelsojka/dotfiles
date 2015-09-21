@@ -3,7 +3,9 @@ from snippet_helpers import *
 endglobal
 
 snippet method "Add a class method" b
-/**`!p jsdocArguments(t[2], snip)`
+/**
+ * ${3:description}
+ *`!p jsdocArguments(t[2], snip)`
  * @return {*} Return value
  */
 ${1:methodName}(${2:arguments}) {
@@ -12,7 +14,9 @@ ${1:methodName}(${2:arguments}) {
 endsnippet
 
 snippet func "Add a function" b
-/**`!p jsdocArguments(t[2], snip)`
+/**
+ * ${3:description}
+ *`!p jsdocArguments(t[2], snip)`
  * @return {*} Return value
  */
 function ${1:methodName}(${2:arguments}) {
@@ -20,11 +24,29 @@ function ${1:methodName}(${2:arguments}) {
 endsnippet
 
 snippet class "Create a class" b
-/**`!p jsdocArguments(t[2], snip)`
+/**
+ * ${3:description}
+ *`!p jsdocArguments(t[2], snip)`
  * @return {*} Return value
  */
 class ${1:className} {
   constructor(${2:arguments}) {
   }
 }
+endsnippet
+
+snippet jsdoc "Document a class function" "re.match('\s*[a-zA-Z]+\((.*)\)\s*\{', snip.buffer[snip.line + 1])" be
+/**
+ * ${1:description}
+ * `!p jsdocArguments(snip.context.group(1), snip)`
+ * @return {*} ${2:returnValue}
+ */
+endsnippet
+
+snippet jsdoc "Document a function" "re.match('function\s*[a-zA-Z]*\((.*)\)\s*\{', snip.buffer[snip.line + 1])" be
+/**
+ * ${1:description}
+ * `!p jsdocArguments(snip.context.group(1), snip)`
+ * @return {*} ${2:returnValue}
+ */
 endsnippet
