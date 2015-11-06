@@ -34,6 +34,7 @@ Plug 'majutsushi/tagbar'
 Plug 'rking/ag.vim'
 Plug 'benekastah/neomake'
 Plug 'Shougo/deoplete.nvim'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
