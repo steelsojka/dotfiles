@@ -5,9 +5,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'gregsexton/MatchTag'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-Plug 'vim-scripts/YankRing.vim', { 'on': 'YRGetElem' }
-Plug 'corntrace/bufexplorer' 
-Plug 'kien/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'othree/html5.vim'
@@ -30,11 +27,11 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'digitaltoad/vim-jade'
 Plug 'xolox/vim-session', { 'on': ['SaveSession', 'OpenSession']}
 Plug 'xolox/vim-misc'
-Plug 'majutsushi/tagbar'
-Plug 'rking/ag.vim'
 Plug 'benekastah/neomake'
 Plug 'Shougo/deoplete.nvim'
 Plug 'airblade/vim-gitgutter'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim'
 
 call plug#end()
 
@@ -91,6 +88,9 @@ set wildignore+=log/**
 set wildignore+=node_modules/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
+set wildignore+=.cache/**
+set wildignore+=.tmp/**
+set wildignore+=.git/**
 
 " ------------------------------------------------------------------------
 " Scrolling
@@ -201,6 +201,43 @@ if has('nvim')
   tnoremap <C-k> <C-\><C-n><C-w>k
   tnoremap <C-l> <C-\><C-n><C-w>l
 endif 
+
+" ------------------------------------------------------------------------
+" unite.vim
+" ------------------------------------------------------------------------
+
+" CtrlP like behavour
+nnoremap <S-p> :Unite file_rec/async -start-insert -auto-preview<cr>
+nnoremap <C-p> :Unite file_rec/async -start-insert<cr>
+
+if executable('ag') 
+  let g:unite_source_rec_async_command=['ag', '--nocolor', '--nogroup', '--hidden', '-g', '']
+endif
+
+call unite#custom#source('file_rec/async', 'ignore_globs', split(&wildignore, ','))
+call unite#custom#source('file_rec/async', 'max_candidates', 0)
+
+" Ack Grep behavour
+let g:unite_source_grep_command = 'ag'
+let g:unite_source_grep_recursive_opt = ''
+let g:unite_source_grep_default_opts = '--ignore .git -i --vimgrep'
+nnoremap <leader>/ :Unite grep:.<cr>
+
+" YankRing behaviour
+let g:unite_source_history_yank_enable = 1
+nnoremap <leader>y :Unite history/yank<cr>
+
+" Buffer Explorer behavour
+nnoremap <leader>be :Unite -quick-match buffer<cr>
+
+" Unite buffer overrides
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  imap <silent><buffer><expr> <C-s> unite#do_action('vsplit')
+  imap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
+  imap <buffer> <C-j> <Plug>(unite_select_next_line)
+  imap <buffer> <C-k> <Plug>(unite_select_previous_line)
+endfunction
 
 " ------------------------------------------------------------------------
 " vim-airline
