@@ -32,6 +32,7 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'airblade/vim-gitgutter'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim'
+Plug 'Shougo/neoyank.vim'
 
 call plug#end()
 
