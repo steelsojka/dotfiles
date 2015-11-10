@@ -71,6 +71,7 @@ set pastetoggle=<F2>
 set grepprg=ag
 set shiftround
 set nofoldenable
+set tags=.tags;
 
 " ------------------------------------------------------------------------
 " Completion
@@ -208,8 +209,8 @@ endif
 " ------------------------------------------------------------------------
 
 " CtrlP like behavour
-nnoremap <S-p> :Unite file_rec/async -start-insert -auto-preview<cr>
-nnoremap <C-p> :Unite file_rec/async -start-insert<cr>
+nnoremap <S-p> :Unite file_rec/async -start-insert -auto-preview -direction=botright -winheight=15<cr>
+nnoremap <C-p> :Unite file_rec/async -start-insert -direction=botright -winheight=15<cr>
 
 if executable('ag') 
   let g:unite_source_rec_async_command=['ag', '--nocolor', '--nogroup', '--hidden', '-g', '']
@@ -219,23 +220,29 @@ call unite#custom#source('file_rec/async', 'ignore_globs', split(&wildignore, ',
 call unite#custom#source('file_rec/async', 'max_candidates', 0)
 
 " Ack Grep behavour
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_recursive_opt = ''
-let g:unite_source_grep_default_opts = '--ignore .git -i --vimgrep'
-nnoremap <leader>/ :Unite grep:.<cr>
+if executable('ag') 
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_recursive_opt = ''
+  let g:unite_source_grep_default_opts = '--ignore .git -i --vimgrep'
+endif
+nnoremap <leader>/ :Unite -direction=botright grep:.<cr>
 
 " YankRing behaviour
 let g:unite_source_history_yank_enable = 1
-nnoremap <leader>y :Unite history/yank<cr>
+nnoremap <leader>p :Unite history/yank -direction=botright -winheight=15<cr>
 
 " Buffer Explorer behavour
-nnoremap <leader>be :Unite -quick-match buffer<cr>
+nnoremap <leader>e :Unite -no-split -auto-preview -buffer-name=buffer -winheight=15 -direction=botright buffer<cr>
 
 " Unite buffer overrides
 autocmd FileType unite call s:unite_settings()
 function! s:unite_settings()
-  imap <silent><buffer><expr> <C-s> unite#do_action('vsplit')
+  imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
   imap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
+  imap <silent><buffer><expr> <C-h> unite#do_action('split')
+  nmap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+  nmap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
+  nmap <silent><buffer><expr> <C-h> unite#do_action('split')
   imap <buffer> <C-j> <Plug>(unite_select_next_line)
   imap <buffer> <C-k> <Plug>(unite_select_previous_line)
 endfunction
@@ -245,15 +252,8 @@ endfunction
 " ------------------------------------------------------------------------
 let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#branch#enabled = 1
-let g:airline_detect_modified=1
-let g:airline_detect_paste=1
-
-" ------------------------------------------------------------------------
-" YankRing
-" ------------------------------------------------------------------------
-let g:yankring_replace_n_pkey = ''
-let g:yankring_replace_n_nkey = ''
-nnoremap <leader>p :YRGetElem<CR>
+let g:airline_detect_modified = 1
+let g:airline_detect_paste = 1
 
 " ------------------------------------------------------------------------
 " Neomake
@@ -274,13 +274,6 @@ nnoremap <leader>f :NERDTreeFind<CR>
 " let NERDTreeIgnore = []
 
 " ------------------------------------------------------------------------
-" CtrlP
-" ------------------------------------------------------------------------
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  'node_modules',
-  \ }
-
-" ------------------------------------------------------------------------
 " vim-sessions
 " ------------------------------------------------------------------------
 let g:session_autoload='no'
@@ -293,9 +286,6 @@ nnoremap <Leader>ss :SaveSession
 " ------------------------------------------------------------------------
 let g:UseNumberToggleTrigger = 0
 nnoremap <Leader>n :call NumberToggle()<cr>
-
-autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
-autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
 
 " ------------------------------------------------------------------------
 " UltiSnips
