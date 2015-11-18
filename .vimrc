@@ -196,6 +196,8 @@ vnoremap <C-r> "+y:%s/<C-r>+//g<left><left>
 " ------ Terminal mappings ------------
 
 if has('nvim')
+  nnoremap <leader>c :vsplit<cr>:term<cr>
+  nnoremap <leader>hc :split<cr>:term<cr>
   " Exit terminal mode with ESC
   tnoremap <Esc> <C-\><C-n>
   tnoremap <C-h> <C-\><C-n><C-w>h
