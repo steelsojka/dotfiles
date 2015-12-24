@@ -157,6 +157,10 @@ nnoremap <c-l> <c-w>l
 nnoremap <s-l> gt
 nnoremap <s-h> gT
 
+" Move up and down in the change list
+nnoremap <s-k> g;
+nnoremap <s-j> g,
+
 " Moving lines
 nnoremap <silent> ˚ :move-2<cr>
 nnoremap <silent> ∆ :move+<cr>
