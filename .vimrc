@@ -33,6 +33,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'Shougo/neoyank.vim'
+Plug 'neovim/node-host'
+Plug 'steelsojka/vim-doc-it-for-me'
 
 call plug#end()
 
@@ -60,7 +62,6 @@ set autoindent
 set expandtab
 set backspace=eol,start,indent
 set showmatch
-set cursorline
 set showcmd
 set ruler
 set backup
@@ -157,9 +158,11 @@ nnoremap <c-l> <c-w>l
 nnoremap <s-l> gt
 nnoremap <s-h> gT
 
-" Move up and down in the change list
 nnoremap <s-k> g;
 nnoremap <s-j> g,
+
+nnoremap <F3> :call HighlightCursor()<cr>
+inoremap <F3> :call HighlightCursor()<cr>
 
 " Moving lines
 nnoremap <silent> ˚ :move-2<cr>
@@ -315,6 +318,22 @@ function! HasPaste()
     	return 'PASTE MODE  '
   	en
     return ''
+endfunction
+
+let g:highlightCursorState = 0
+
+function! HighlightCursor()
+  if g:highlightCursorState == 0
+    let g:highlightCursorState = 1
+    set cursorline
+    set cursorcolumn
+    echo "Cursor highlight on"
+  else 
+    let g:highlightCursorState = 0
+    set nocursorline
+    set nocursorcolumn
+    echo "Cursor highlight off"
+  endif
 endfunction
 
 " ----------------------------------------------------------------------------
