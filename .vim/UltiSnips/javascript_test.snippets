@@ -1,25 +1,21 @@
 # Mocha/Jasmine + Chai + ES6
 snippet describe
 describe('${1:something_happens}', () => {
-	${2:// test_stuff}
 });
 endsnippet
 
 snippet before
 beforeEach(() => {
-	${1:// do_stuff}
 });
 endsnippet
 
 snippet after
 afterEach(() => {
-	${1:// do_stuff}
 });
 endsnippet
 
 snippet it
 it('should ${1:do_something}', () => {
-	${2:// expect_something}
 });
 endsnippet
 
@@ -55,6 +51,10 @@ snippet etbab
 expect(${1:value}).to.be.a.boolean;
 endsnippet
 
+snippet etbn
+expect(${1:value}).to.be.null;
+endsnippet
+
 snippet spy
 sandbox.spy()
 endsnippet
@@ -64,7 +64,7 @@ sandbox.stub()
 endsnippet
 
 snippet stubm
-sandbox.stub(${1:object}, '${2:method}');
+sandbox.stub(${1:controller}, '${2:method}');
 endsnippet
 
 snippet testservice
@@ -156,6 +156,33 @@ describe('${1:test_name}', () => {
 
 	it('should do something', () => {
 	});
+  });
+});
+endsnippet
+
+snippet describem
+describe('${1:method}', () => {
+  beforeEach(() => {
+    ${2:controller}.$1();
+  });
+
+  it('should do someting', () => {
+  });
+});
+endsnippet
+
+snippet beforem
+beforeEach(() => {
+  ${1:controller}.${2:method}();
+});
+endsnippet
+
+snippet context
+context('${1:context}', () => {
+  beforeEach(() => {
+  });
+
+  it('should do someting', () => {
   });
 });
 endsnippet
