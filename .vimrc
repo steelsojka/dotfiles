@@ -25,6 +25,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'SirVer/ultisnips'
 Plug 'nanotech/jellybeans.vim'
 Plug 'digitaltoad/vim-jade'
+Plug 'xolox/vim-session', { 'on': ['SaveSession', 'OpenSession']}
+Plug 'xolox/vim-misc'
 Plug 'benekastah/neomake'
 Plug 'Shougo/deoplete.nvim'
 Plug 'airblade/vim-gitgutter'
@@ -37,7 +39,6 @@ Plug 'mattn/emmet-vim'
 Plug 'terryma/vim-expand-region'
 
 call plug#end()
-
 filetype plugin indent on
 syntax on
 
@@ -156,11 +157,16 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-nnoremap <s-l> gt
-nnoremap <s-h> gT
+nnoremap <tab> gt
+nnoremap <s-tab> gT
 
-nnoremap <s-k> g;
-nnoremap <s-j> g,
+nnoremap <s-l> g;
+nnoremap <s-h> g,
+
+nnoremap <S-Left> <C-w><
+nnoremap <S-Down> <C-w>-
+nnoremap <S-Up> <C-w>+
+nnoremap <S-Right> <C-w>>
 
 nnoremap <F3> :call HighlightCursor()<cr>
 inoremap <F3> :call HighlightCursor()<cr>
@@ -176,6 +182,9 @@ xnoremap <silent> ˙ <gv
 xnoremap <silent> ¬ >gv
 xnoremap < <gv
 xnoremap > >gv
+
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
 " Replace double quotes with single quotes
 nnoremap <Leader>'' :%s/"/'/g<CR>
@@ -200,9 +209,6 @@ nnoremap ; :
 
 " Replace highlighted text
 vnoremap <C-r> "+y:%s/<C-r>+//g<left><left>
-
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
 
 " ------ Terminal mappings ------------
 
