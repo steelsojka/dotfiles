@@ -25,8 +25,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'SirVer/ultisnips'
 Plug 'nanotech/jellybeans.vim'
 Plug 'digitaltoad/vim-jade'
-Plug 'xolox/vim-session', { 'on': ['SaveSession', 'OpenSession']}
-Plug 'xolox/vim-misc'
 Plug 'benekastah/neomake'
 Plug 'Shougo/deoplete.nvim'
 Plug 'airblade/vim-gitgutter'
@@ -35,6 +33,8 @@ Plug 'Shougo/vimproc.vim'
 Plug 'Shougo/neoyank.vim'
 Plug 'neovim/node-host'
 Plug 'steelsojka/vim-doc-it-for-me'
+Plug 'mattn/emmet-vim'
+Plug 'terryma/vim-expand-region'
 
 call plug#end()
 
@@ -72,6 +72,7 @@ set pastetoggle=<F2>
 set grepprg=ag
 set shiftround
 set nofoldenable
+set lazyredraw
 set tags=.tags;
 
 " ------------------------------------------------------------------------
@@ -200,6 +201,9 @@ nnoremap ; :
 " Replace highlighted text
 vnoremap <C-r> "+y:%s/<C-r>+//g<left><left>
 
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
 " ------ Terminal mappings ------------
 
 if has('nvim')
@@ -267,7 +271,7 @@ let g:airline_detect_paste = 1
 " ------------------------------------------------------------------------
 " Neomake
 " ------------------------------------------------------------------------
-let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_javascript_enabled_makers = ['eslint', 'jscs']
 autocmd! BufWritePost * Neomake
 
 " ------------------------------------------------------------------------
