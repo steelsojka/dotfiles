@@ -12,7 +12,6 @@ Plug 'Raimondi/delimitMate'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'othree/html5.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'othree/yajs.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeFind'] }
 Plug 'tpope/vim-abolish'
@@ -34,6 +33,12 @@ Plug 'majutsushi/tagbar'
 Plug 'rking/ag.vim'
 Plug 'benekastah/neomake'
 Plug 'Shougo/deoplete.nvim'
+Plug 'neovim/node-host'
+
+" This supports types currently
+Plug 'kern/vim-es7'
+" Plug 'othree/es.next.syntax.vim'
+" Plug 'othree/yajs.vim'
 
 call plug#end()
 
