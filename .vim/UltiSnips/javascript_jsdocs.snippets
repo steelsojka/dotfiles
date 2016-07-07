@@ -2,11 +2,20 @@
 snippet @func
 /**
  * ${1:description}
- *
  * @func
  * ${2:params}
  * ${3:return_value}
  */
+endsnippet
+
+snippet @meth
+/**
+ * ${1:description}
+ */
+endsnippet
+
+snippet @ab
+@abstract
 endsnippet
 
 snippet @mo
@@ -14,15 +23,15 @@ snippet @mo
 endsnippet
 
 snippet @p
-@param {${1:type}} ${2:name} ${3:description}
+@param {${1:type}} ${2:name} - ${3:description}
 endsnippet
 
 snippet @po
-@param {${1:type}} [${2:name}] ${4:description}
+@param {${1:type}} [${2:name}] - ${3:description}
 endsnippet
 
 snippet @po=
-@param {${1:type}} [${2:name}=${3:default_value}] ${4:description}
+@param {${1:type}} [${2:name}=${3:default_value}] - ${4:description}
 endsnippet
 
 snippet @r
@@ -31,6 +40,21 @@ endsnippet
 
 snippet @pr
 @private
+endsnippet
+
+snippet @prop
+@property {${1:type}} ${2:name} - ${3:description} 
+endsnippet
+
+snippet @f
+@fires ${1:class}#${2:event_name}
+endsnippet
+
+snippet @edoc
+/**
+ * ${1:event_name} event.
+ * @event ${2:class_name}#$1
+ */
 endsnippet
 
 snippet @class

@@ -5,9 +5,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'gregsexton/MatchTag'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-Plug 'vim-scripts/YankRing.vim', { 'on': 'YRGetElem' }
-Plug 'corntrace/bufexplorer' 
-Plug 'kien/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'othree/html5.vim'
@@ -29,19 +26,20 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'digitaltoad/vim-jade'
 Plug 'xolox/vim-session', { 'on': ['SaveSession', 'OpenSession']}
 Plug 'xolox/vim-misc'
-Plug 'majutsushi/tagbar'
-Plug 'rking/ag.vim'
 Plug 'benekastah/neomake'
 Plug 'Shougo/deoplete.nvim'
+Plug 'airblade/vim-gitgutter'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim'
+Plug 'Shougo/neoyank.vim'
 Plug 'neovim/node-host'
-
-" This supports types currently
-Plug 'kern/vim-es7'
-" Plug 'othree/es.next.syntax.vim'
-" Plug 'othree/yajs.vim'
+Plug 'steelsojka/vim-doc-it-for-me'
+Plug 'mattn/emmet-vim'
+Plug 'terryma/vim-expand-region'
+Plug 'steelsojka/es.next.syntax.vim'
+Plug 'othree/yajs.vim'
 
 call plug#end()
-
 filetype plugin indent on
 syntax on
 
@@ -66,7 +64,6 @@ set autoindent
 set expandtab
 set backspace=eol,start,indent
 set showmatch
-set cursorline
 set showcmd
 set ruler
 set backup
@@ -77,6 +74,8 @@ set pastetoggle=<F2>
 set grepprg=ag
 set shiftround
 set nofoldenable
+set lazyredraw
+set tags=.tags;
 
 " ------------------------------------------------------------------------
 " Completion
@@ -95,6 +94,9 @@ set wildignore+=log/**
 set wildignore+=node_modules/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
+set wildignore+=.cache/**
+set wildignore+=.tmp/**
+set wildignore+=.git/**
 
 " ------------------------------------------------------------------------
 " Scrolling
@@ -156,8 +158,19 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-nnoremap <s-l> gt
-nnoremap <s-h> gT
+nnoremap <tab> gt
+nnoremap <s-tab> gT
+
+nnoremap <s-l> g;
+nnoremap <s-h> g,
+
+nnoremap <S-Left> <C-w><
+nnoremap <S-Down> <C-w>-
+nnoremap <S-Up> <C-w>+
+nnoremap <S-Right> <C-w>>
+
+nnoremap <F3> :call HighlightCursor()<cr>
+inoremap <F3> :call HighlightCursor()<cr>
 
 " Moving lines
 nnoremap <silent> ˚ :move-2<cr>
@@ -170,6 +183,9 @@ xnoremap <silent> ˙ <gv
 xnoremap <silent> ¬ >gv
 xnoremap < <gv
 xnoremap > >gv
+
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
 " Replace double quotes with single quotes
 nnoremap <Leader>'' :%s/"/'/g<CR>
@@ -198,6 +214,8 @@ vnoremap <C-r> "+y:%s/<C-r>+//g<left><left>
 " ------ Terminal mappings ------------
 
 if has('nvim')
+  nnoremap <leader>c :vsplit<cr>:term<cr>
+  nnoremap <leader>hc :split<cr>:term<cr>
   " Exit terminal mode with ESC
   tnoremap <Esc> <C-\><C-n>
   tnoremap <C-h> <C-\><C-n><C-w>h
@@ -207,24 +225,60 @@ if has('nvim')
 endif 
 
 " ------------------------------------------------------------------------
+" unite.vim
+" ------------------------------------------------------------------------
+
+" CtrlP like behavour
+nnoremap <S-p> :Unite file_rec/async -start-insert -auto-preview -direction=botright -winheight=15<cr>
+nnoremap <C-p> :Unite file_rec/async -start-insert -direction=botright -winheight=15<cr>
+
+if executable('ag') 
+  let g:unite_source_rec_async_command=['ag', '--nocolor', '--nogroup', '--hidden', '-g', '']
+endif
+
+call unite#custom#source('file_rec/async', 'ignore_globs', split(&wildignore, ','))
+call unite#custom#source('file_rec/async', 'max_candidates', 0)
+
+" Ack Grep behavour
+if executable('ag') 
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_recursive_opt = ''
+  let g:unite_source_grep_default_opts = '--ignore .git -i --vimgrep'
+endif
+nnoremap <leader>/ :Unite -direction=botright grep:.<cr>
+
+" YankRing behaviour
+let g:unite_source_history_yank_enable = 1
+nnoremap <leader>p :Unite history/yank -direction=botright -winheight=15<cr>
+
+" Buffer Explorer behavour
+nnoremap <leader>e :Unite -no-split -auto-preview -buffer-name=buffer -winheight=15 -direction=botright buffer<cr>
+
+" Unite buffer overrides
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+  imap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
+  imap <silent><buffer><expr> <C-h> unite#do_action('split')
+  nmap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+  nmap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
+  nmap <silent><buffer><expr> <C-h> unite#do_action('split')
+  imap <buffer> <C-j> <Plug>(unite_select_next_line)
+  imap <buffer> <C-k> <Plug>(unite_select_previous_line)
+endfunction
+
+" ------------------------------------------------------------------------
 " vim-airline
 " ------------------------------------------------------------------------
 let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#branch#enabled = 1
-let g:airline_detect_modified=1
-let g:airline_detect_paste=1
-
-" ------------------------------------------------------------------------
-" YankRing
-" ------------------------------------------------------------------------
-let g:yankring_replace_n_pkey = ''
-let g:yankring_replace_n_nkey = ''
-nnoremap <leader>p :YRGetElem<CR>
+let g:airline_detect_modified = 1
+let g:airline_detect_paste = 1
 
 " ------------------------------------------------------------------------
 " Neomake
 " ------------------------------------------------------------------------
-let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_javascript_enabled_makers = ['eslint', 'jscs']
 autocmd! BufWritePost * Neomake
 
 " ------------------------------------------------------------------------
@@ -240,13 +294,6 @@ nnoremap <leader>f :NERDTreeFind<CR>
 " let NERDTreeIgnore = []
 
 " ------------------------------------------------------------------------
-" CtrlP
-" ------------------------------------------------------------------------
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  'node_modules',
-  \ }
-
-" ------------------------------------------------------------------------
 " vim-sessions
 " ------------------------------------------------------------------------
 let g:session_autoload='no'
@@ -259,9 +306,6 @@ nnoremap <Leader>ss :SaveSession
 " ------------------------------------------------------------------------
 let g:UseNumberToggleTrigger = 0
 nnoremap <Leader>n :call NumberToggle()<cr>
-
-autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
-autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
 
 " ------------------------------------------------------------------------
 " UltiSnips
@@ -285,6 +329,22 @@ function! HasPaste()
     	return 'PASTE MODE  '
   	en
     return ''
+endfunction
+
+let g:highlightCursorState = 0
+
+function! HighlightCursor()
+  if g:highlightCursorState == 0
+    let g:highlightCursorState = 1
+    set cursorline
+    set cursorcolumn
+    echo "Cursor highlight on"
+  else 
+    let g:highlightCursorState = 0
+    set nocursorline
+    set nocursorcolumn
+    echo "Cursor highlight off"
+  endif
 endfunction
 
 " ----------------------------------------------------------------------------

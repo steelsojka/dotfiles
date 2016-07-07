@@ -35,7 +35,7 @@ class ${1:className} {
 }
 endsnippet
 
-snippet jsdoc "Document a class function" "re.match('\s*[a-zA-Z]+\((.*)\)\s*\{', snip.buffer[snip.line + 1])" be
+snippet jsdoc "Document a class function" "re.match('\s*(?:async|\*)?\s?[a-zA-Z]+\((.*)\)\s*\{', snip.buffer[snip.line + 1])" be
 /**
  * ${1:description}
  * `!p jsdocArguments(snip.context.group(1), snip)`
@@ -43,7 +43,7 @@ snippet jsdoc "Document a class function" "re.match('\s*[a-zA-Z]+\((.*)\)\s*\{',
  */
 endsnippet
 
-snippet jsdoc "Document a function" "re.match('function\s*[a-zA-Z]*\((.*)\)\s*\{', snip.buffer[snip.line + 1])" be
+snippet jsdoc "Document a function" "re.match('\s*(?:async|\*)?\s?function\s*[a-zA-Z]*\((.*)\)\s*\{', snip.buffer[snip.line + 1])" be
 /**
  * ${1:description}
  * `!p jsdocArguments(snip.context.group(1), snip)`
