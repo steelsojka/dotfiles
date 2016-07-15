@@ -9,7 +9,6 @@ Plug 'Raimondi/delimitMate'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'othree/html5.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'othree/yajs.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTree', 'NERDTreeFind'] }
 Plug 'tpope/vim-abolish'
@@ -39,6 +38,7 @@ Plug 'mattn/emmet-vim'
 Plug 'terryma/vim-expand-region'
 Plug 'leafgarland/typescript-vim'
 Plug 'steelsojka/es.next.syntax.vim'
+Plug 'othree/yajs.vim'
 " Plug 'flowtype/vim-flow'
 
 call plug#end()
