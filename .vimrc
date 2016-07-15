@@ -37,6 +37,9 @@ Plug 'neovim/node-host'
 Plug 'steelsojka/vim-doc-it-for-me'
 Plug 'mattn/emmet-vim'
 Plug 'terryma/vim-expand-region'
+Plug 'leafgarland/typescript-vim'
+Plug 'steelsojka/es.next.syntax.vim'
+" Plug 'flowtype/vim-flow'
 
 call plug#end()
 filetype plugin indent on

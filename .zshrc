@@ -19,6 +19,8 @@ COMPLETION_WAITING_DOTS="true"
 
 bindkey "kj" vi-cmd-mode
 
-plugins=(git node npm vi-mode)
+plugins=(git node npm vi-mode chucknorris)
 
 source $ZSH/oh-my-zsh.sh
+
+chuck_cow

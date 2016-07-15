@@ -1,38 +1,14 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-# Ask for the administrator password upfront
-sudo -v
+git clone https://github.com/Linuxbrew/brew.git ~/.linuxbrew
 
-read -p "Is this system 64 bit? (y/n) " -n 1
+~/.brew
 
-# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+# ZSH
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-sudo add-apt-repository ppa:neovim-ppa/unstable
+# NVM
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
 
-sudo apt-get update
-
-sudo apt-get install silversearcher-ag
-sudo apt-get install vim
-sudo apt-get install neovim
-sudo apt-get install curl
-sudo apt-get install wget
-sudo apt-get install tree
-sudo apt-get install imagemagick
-sudo apt-get install git
-sudo apt-get install tmux
-
-~/installs/linux/iojs
-
-#Chrome install
-sudo apt-get install libxss1 libappindicator1 libindicator7
-
-# If 64 bit
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb    
-else 
-    wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
-fi
-
-sudo dpkg -i google-chrome*.dpkg
-sudo apt-get install -f
+# Neovim setup
+~/installs/vim
