@@ -1,0 +1,14 @@
+[
+	{
+        "keys": ["k", "j"],
+        "command": "_enter_normal_mode",
+        "args": {
+            "mode": "mode_insert"
+        },
+        "context": [{"key": "vi_insert_mode_aware"}]
+    },
+	{ "keys": ["ctrl+p"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
+	{ "keys": ["ctrl+h"], "command": "focus_neighboring_group", "args": {"forward": false} },
+	{ "keys": ["ctrl+l"], "command": "focus_neighboring_group" },
+    { "keys": ["ctrl+r"], "command": "redo_or_repeat" }
+]

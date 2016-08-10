@@ -1,0 +1,26 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"1337 Color Scheme",
+		"Boron Color Scheme",
+		"Boxy Theme",
+		"Color Highlighter",
+		"Colorsublime",
+		"DocBlockr",
+		"EJS",
+		"Git",
+		"GitGutter",
+		"JavaScriptNext - ES6 Syntax",
+		"Local History",
+		"Package Control",
+		"Pug",
+		"SideBarEnhancements",
+		"Terminal",
+		"TypeScript",
+		"Vintageous"
+	]
+}

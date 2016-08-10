@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+import ${1:name} from 'lodash/${1:name}';
+]]></content>
+	<tabTrigger>li</tabTrigger>
+	<scope>source.js, source.ts</scope>
+	<description>Import a lodash package</description>
+</snippet>
