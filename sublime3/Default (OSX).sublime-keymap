@@ -1,0 +1,32 @@
+[
+	{
+        "keys": ["k", "j"],
+        "command": "_enter_normal_mode",
+        "args": {
+            "mode": "mode_insert"
+        },
+        "context": [{"key": "vi_insert_mode_aware"}]
+    },
+	{ "keys": ["ctrl+p"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
+
+    // Origami window bingings - emulate most used Vim window commands
+    { "keys": ["ctrl+h"], "command": "travel_to_pane", "args": { "direction": "left" }},
+    { "keys": ["ctrl+l"], "command": "travel_to_pane", "args": { "direction": "right" }},
+    { "keys": ["ctrl+k"], "command": "travel_to_pane", "args": { "direction": "up" }},
+    { "keys": ["ctrl+j"], "command": "travel_to_pane", "args": { "direction": "down" }},
+    { "keys": ["ctrl+w", "ctrl+l"], "command": "travel_to_pane", "args": { "direction": "left" }},
+    { "keys": ["ctrl+w", "ctrl+l"], "command": "travel_to_pane", "args": { "direction": "right" }},
+    { "keys": ["ctrl+w", "ctrl+k"], "command": "travel_to_pane", "args": { "direction": "up" }},
+    { "keys": ["ctrl+w", "ctrl+j"], "command": "travel_to_pane", "args": { "direction": "down" }},
+    { "keys": ["ctrl+shift+h"], "command": "carry_file_to_pane", "args": { "direction": "left" }},
+    { "keys": ["ctrl+shift+l"], "command": "carry_file_to_pane", "args": { "direction": "right" }},
+    { "keys": ["ctrl+shift+k"], "command": "carry_file_to_pane", "args": { "direction": "up" }},
+    { "keys": ["ctrl+shift+j"], "command": "carry_file_to_pane", "args": { "direction": "down" }},
+    { "keys": ["ctrl+w", "v"], "command": "create_pane_with_cloned_file", "args": { "direction": "right" }},
+    { "keys": ["ctrl+w", "s"], "command": "create_pane_with_cloned_file", "args": { "direction": "down" }},
+    { "keys": ["ctrl+w", "q"], "command": "destroy_pane", "args": { "direction": "self" }},
+    { "keys": ["ctrl+w", "<"], "command": "resize_pane", "args": { "orientation": "cols" }},
+    { "keys": ["ctrl+w", ">"], "command": "resize_pane", "args": { "orientation": "cols" }},
+    { "keys": ["ctrl+w", "-"], "command": "resize_pane", "args": { "orientation": "rows" }},
+    { "keys": ["ctrl+w", "+"], "command": "resize_pane", "args": { "orientation": "rows" }},
+]

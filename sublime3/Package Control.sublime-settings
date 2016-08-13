@@ -6,6 +6,7 @@
 	"installed_packages":
 	[
 		"1337 Color Scheme",
+		"AutoFileName",
 		"Boron Color Scheme",
 		"Boxy Theme",
 		"Color Highlighter",
@@ -16,8 +17,10 @@
 		"GitGutter",
 		"JavaScriptNext - ES6 Syntax",
 		"Local History",
+		"Origami",
 		"Package Control",
 		"Pug",
+		"Python 3",
 		"SideBarEnhancements",
 		"Terminal",
 		"TypeScript",
