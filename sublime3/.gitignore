@@ -1,0 +1,6 @@
+*
+!.gitignore
+!*.sublime-snippet
+!*.sublime-settings
+!*.sublime-keymap
+!.vintageousrc

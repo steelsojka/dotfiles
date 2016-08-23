@@ -8,6 +8,7 @@
         "context": [{"key": "vi_insert_mode_aware"}]
     },
 	{ "keys": ["ctrl+p"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
+    { "keys": ["ctrl+alt+f"], "command": "reveal_in_side_bar" },
 
     // Origami window bingings - emulate most used Vim window commands
     { "keys": ["ctrl+h"], "command": "travel_to_pane", "args": { "direction": "left" }},

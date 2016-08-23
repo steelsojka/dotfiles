@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+import ${1:name} from 'lodash/fp/${1:name}';
+]]></content>
+	<tabTrigger>lif</tabTrigger>
+	<scope>source.js, source.ts</scope>
+	<description>Import a lodash fp package</description>
+</snippet>
