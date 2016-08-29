@@ -18,7 +18,6 @@
 		"node_modules/",
 		"*tmp"
 	],
-
 	"color_scheme": "Packages/Boxy Theme/schemes/Boxy Ocean.tmTheme",
 	"folder_exclude_patterns":
 	[
@@ -28,17 +27,18 @@
 		"CVS",
 		".idea"
 	],
-	"font_size": 10,
+	"font_size": 12,
 	"ignored_packages":
 	[
 		"Vintageous"
 	],
-	"node_path": "/home/steel/.nvm/versions/node/v5.11.1/bin/node",
+	"node_path": "/Users/soj214/.nvm/versions/node/v5.11.1/bin/node",
 	"origami_auto_close_empty_panes": true,
 	"tab_size": 2,
 	"theme": "Boxy Ocean.sublime-theme",
 	"translate_tab_to_spaces": true,
-	"typescript_tsdk": "/home/steel/.nvm/versions/node/v5.11.1/lib/node_modules/typescript/lib",
+	"trim_trailing_white_space_on_save": true,
+	"typescript_tsdk": "/Users/soj214/.nvm/versions/node/v5.11.1/lib/node_modules/typescript/lib",
 	"vintage_ctrl_keys": true,
 	"vintage_start_in_command_mode": true,
 	"vintageous_use_ctrl_keys": true,
