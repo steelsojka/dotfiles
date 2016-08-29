@@ -1,5 +1,5 @@
 [
-	{
+    {
         "keys": ["k", "j"],
         "command": "exit_insert_mode",
         "context":
@@ -19,16 +19,116 @@
             {"key": "setting.command_mode", "operand": true}
         ]
     },
-    { "keys": ["ctrl+alt+t"], "command": "reveal_in_side_bar" },
-    { "keys": ["ctrl+t"], "command": "toggle_side_bar" },
-
-    // Origami window bingings - emulate most used Vim window commands
-    { "keys": ["ctrl+h"], "command": "travel_to_pane", "args": { "direction": "left" }},
-    { "keys": ["ctrl+l"], "command": "travel_to_pane", "args": { "direction": "right" }},
-    { "keys": ["ctrl+k"], "command": "travel_to_pane", "args": { "direction": "up" }},
-    { "keys": ["ctrl+j"], "command": "travel_to_pane", "args": { "direction": "down" }},
-    { "keys": ["ctrl+shift+h"], "command": "carry_file_to_pane", "args": { "direction": "left" }},
-    { "keys": ["ctrl+shift+l"], "command": "carry_file_to_pane", "args": { "direction": "right" }},
-    { "keys": ["ctrl+shift+k"], "command": "carry_file_to_pane", "args": { "direction": "up" }},
-    { "keys": ["ctrl+shift+j"], "command": "carry_file_to_pane", "args": { "direction": "down" }}
+    // <leader>w :w<cr>
+    {
+      "keys": [" ", "w"],
+      "command": "save",
+      "context": [
+        {"key": "setting.command_mode", "operand": true}
+      ]
+    },
+    // <leader>q :q<cr>
+    {
+      "keys": [" ", "q"],
+      "command": "close",
+      "context": [
+        {"key": "setting.command_mode", "operand": true}
+      ]
+    },
+    // tab :gt
+    {
+      "keys": ["tab"],
+      "command": "next_view_in_stack",
+      "context": [
+        {"key": "setting.command_mode", "operand": true}
+      ]
+    },
+    // tab :gT
+    {
+      "keys": ["shift+tab"],
+      "command": "prev_view_in_stack",
+      "context": [
+        {"key": "setting.command_mode", "operand": true}
+      ]
+    },
+    // <leader>t :NERDTree
+    {
+      "keys": [" ", "t"],
+      "command": "toggle_side_bar",
+      "context": [
+        {"key": "setting.command_mode", "operand": true}
+      ]
+    },
+    // <leader>f :NERDTreeFind
+    {
+      "keys": [" ", "f"],
+      "command": "reveal_in_side_bar",
+      "context": [
+        {"key": "setting.command_mode", "operand": true}
+      ]
+    },
+    {
+      "keys": ["ctrl+h"],
+      "command": "travel_to_pane",
+      "args": { "direction": "left" },
+      "context": [
+        {"key": "setting.command_mode", "operand": true}
+      ]
+    },
+    {
+      "keys": ["ctrl+l"],
+      "command": "travel_to_pane",
+      "args": { "direction": "right" },
+      "context": [
+        {"key": "setting.command_mode", "operand": true}
+      ]
+    },
+    {
+      "keys": ["ctrl+k"],
+      "command": "travel_to_pane",
+      "args": { "direction": "up" },
+      "context": [
+        {"key": "setting.command_mode", "operand": true}
+      ]
+    },
+    {
+      "keys": ["ctrl+j"],
+      "command": "travel_to_pane",
+      "args": { "direction": "down" },
+      "context": [
+        {"key": "setting.command_mode", "operand": true}
+      ]
+    },
+    {
+      "keys": ["ctrl+shift+h"],
+      "command": "carry_file_to_pane",
+      "args": { "direction": "left" },
+      "context": [
+        {"key": "setting.command_mode", "operand": true}
+      ]
+    },
+    {
+      "keys": ["ctrl+shift+l"],
+      "command": "carry_file_to_pane",
+      "args": { "direction": "right" },
+      "context": [
+        {"key": "setting.command_mode", "operand": true}
+      ]
+    },
+    {
+      "keys": ["ctrl+shift+k"],
+      "command": "carry_file_to_pane",
+      "args": { "direction": "up" },
+      "context": [
+        {"key": "setting.command_mode", "operand": true}
+      ]
+    },
+    {
+      "keys": ["ctrl+shift+j"],
+      "command": "carry_file_to_pane",
+      "args": { "direction": "down" },
+      "context": [
+        {"key": "setting.command_mode", "operand": true}
+      ]
+    }
 ]
