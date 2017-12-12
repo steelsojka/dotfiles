@@ -24,6 +24,8 @@
     pc = !"git push origin $(git rev-parse --abbrev-ref HEAD) "
     # Force push current branch to remote
     pcf = !"git push -f origin $(git rev-parse --abbrev-ref HEAD) "
+    plc = !"git pull origin $(git rev-parse --abbrev-ref HEAD)"
+    cherry-pit = !"git rebase -p --onto $1^ $1"
 	# Show verbose output about tags, branches or remotes
 	tags = tag -l
 	branches = branch -a
